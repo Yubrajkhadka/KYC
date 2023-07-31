@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'know',
+    'captcha'
 ]
 
 MIDDLEWARE = [
@@ -76,8 +77,17 @@ WSGI_APPLICATION = 'KYC.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE':'django.db.backends.mysql',
+        'NAME':'kyc',
+        'USER':'root',
+        'PASSWORD':'',
+        'HOST':'127.0.0.1',
+        'PORT':'3306',
+        'OPTIONS':{
+            'init_command':"SET sql_mode ='STRICT_TRANS_TABLES'"
+        }
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -126,3 +136,13 @@ MEDIA_ROOT = BASE_DIR / "media"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'yubrajkhadka@kcc.edu.np'
+EMAIL_HOST_PASSWORD = '9808482819'
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"

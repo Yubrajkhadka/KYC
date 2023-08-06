@@ -1,0 +1,369 @@
+{% extends 'master/master.html '%} {% block content %}
+<br><br><br><br>
+<!-- CSS -->
+<link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!-- JavaScript -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script> 
+
+
+
+
+
+<!-- SmartWizard html -->
+<div class="container">
+<form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h4 style="text-align: center; color: #009EF7; font-weight: 900;">KNOW YOUR CUSTOMER (KYC) APPLICATION FORM</h4>
+<br>
+<div id="smartwizard" class = "center mx-auto">
+    <ul class="nav" >
+        <li class="nav-item">
+            <a class="nav-link rounded-circle" href="#tab1">
+                <div class="num" >Personal Details</div>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link rounded-circle" href="#tab2">
+                <div class="num ">Addresss</div>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link rounded-circle" href="#tab3">
+                <div class="num"> Family Details</div>
+              
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link rounded-circle" href="#tab4">
+                <div class="num">Income Details</div>
+    
+            </a>
+        </li>
+    </ul>
+    <br><br><br>
+
+    <div class="tab-content center">
+        <div id="tab1 "class="tab-pane" role="tabpanel" aria-labelledby="step-1">
+            <div  class="panel panel-primary" >
+                <div class="panel-body">
+                    <div class="form-group row">
+                        <div class="col-md-4 mb-3">
+                            <label for="fname"class="text-dark">First Name (पहिलो नाम )*</label>
+                            {{form.firstname}}
+                            <!-- <input type="text" class="form-control" placeholder=""> -->
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="mname" class="text-dark">Middle Name (बीचको नाम )</label>
+                            {{form.middlename}}
+                            <!-- <input type="text" class="form-control" placeholder=""> -->
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="lname" class="text-dark">Last Name (अन्तिम अर्थात् थर) *</label>
+                            {{form.lastname}}
+                            <!-- <input type="text" class="form-control" placeholder=""> -->
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group row">
+                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Photo (फोटो){{form.image}}</span></div>
+                      <div class="col-md-4 mb-3">
+                        <label for="fhusband">Father (बाबुको नाम *)</label> {{form.fathername}} </div>
+                    
+                        <div class="col-md-4 mb-3">
+                            <label for="fhusband">Grand Father *</label>{{form.grandfather}}</div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group row">
+                        <div class="col-md-4 mb-3">
+                            <label for="datepicker">Date Of Birth (वि.सं.मा :)*</label>{{form.dateofbirth}}</div>			     		
+                             <div class="col-md-4 mb-3"><label class="control-label">Gender (लिङ्ग)</label>
+                             {{form.gender}}
+                        </div>
+                        <div class="col-md-4 mb-3"><label class="control-label">Martial Status (वैवाहिक स्थिति )</label>
+                             {{form.married_status}}
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group row">
+                        <div class="col-md-4 mb-3">
+                            <label>Nationality  *</label>
+                            {{form.nationality}}
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>PAN No *</label>{{form.pannum}}
+                        </div>
+                        <div class="col-md-4 mb-3"><label>Email Address (ईमेल )</label>{{form.email}}</div>   	
+                        <div class="col-md-4 mb-3"><label>Contact Number</label>{{form.number}}</div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <h4>Citizenship (नागरिकता)</h4>
+                    <div class="form-group row">
+                        <div class="col-md-4 mb-3">
+                            <label>Citizenship No. (नागरिकता नं.)*</label>
+                            {{form.citizenshipnumber}}
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>Issued From (जारी गर्ने जिल्ला) *</label>{% for i in province %}
+                            <p>{{ i.name }}</p>
+                         {% endfor %}
+                                
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>Issued Date (जारी मिति) *</label>{{form.citizen_issued_date}}
+                        </div>
+                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Front-Photo (फोटो){{form.front_photo}}</span></div>
+                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Back-Photo (फोटो){{form.back_photo}}</span></div>
+    
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <h4>Passport</h4>
+                        <div class="form-group row">
+                        <div class="col-md-4 mb-3">
+                            <label>Passport No.*</label>
+                            {{form.passport_number}}
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>Issued From (जारी गर्ने जिल्ला) *</label>
+                            {{form.passport_issued_place}}
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>Issued Date (जारी मिति) *</label>{{form.passport_issued_date}}
+                        </div>
+                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Front-Photo (फोटो){{form.pass_front_photo}}</div>
+                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Back-Photo (फोटो){{form.pass_back_photo}}</span></div>
+    
+                    </div>
+                </div>
+                    <div class="panel-body">
+                            <h4>Other ID Card</h4>
+                    <div class="form-group row">
+                        <div class="col-md-4">
+                            <label>Other ID Card Type</label>{{form.other_card}}
+                        </div>
+                        <div class="col-md-4">
+                            <label>ID Card No.</label>{{form.other_card_number}}
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>Issued Date (जारी मिति) </label>{{form.other_card_issued_date}}
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>Issuing Authority</label>{{form.other_card_issued_authority}}
+                        </div>
+                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Front-Photo (फोटो){{form.other_card_front}}</span></div>
+                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Back-Photo (फोटो){{form.other_card_back}}</span></div>
+    
+                    </div>
+            </div>
+            
+        </div>
+            
+        </div>
+        <!-- ... (other tab-pane elements) ... -->
+        <div id="tab2" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
+            <div  class="panel panel-primary" >
+				<!--Permanent Adress Panel Start -->
+				  <div class="panel-body">  
+					<h4>Permanent Address (स्थायी ठेगाना)</h4> 
+						 	
+						  <div class="form-group row">
+							<div class="col-md-4 mb-3"><label for="lzone">Zone *</label>{{ address_form.zone}}
+	 
+								</div>
+						   <div class="col-md-4 mb-3"><label for="lDistrict">District (जिल्ला)*</label><select name="district" class="form-control beta">
+								 <option value="K">Kathmandu</option>
+									<option value="B">Bhaktapur</option>
+									<option value="L">Lalitpur</option>
+								 </select>
+							</div>
+							<div class="col-md-4 mb-3"><label for="lProvience">Provience*</label><select name="provience" class="form-control beta">
+								<option value="B">Bagmati</option>
+								   <option value="K">Koshi</option>
+								   <option value="M">Madhesh</option>
+								   <option value="G">Gandaki</option>
+								   <option value="L">Lumbini</option>
+								   <option value = "KA">Karnali</option>
+								   <option value="S">Sudurpashchim</option>
+								</select>
+						   </div>
+						   <div class="col-md-4 mb-3"><label for="lMunicipalityVdc">Municipality/VDC (न.पा/गा.वि.स.)*</label><input type="text" class="form-control" placeholder="Municipality/Zone"</div></div>
+						   <div class="col-md-4 mb-3"><label for="lWard No.">Ward No.(वडा नं ) *</label><input type="text" class="form-control" placeholder="Ward No."</div>
+						  </div>	
+						   <div class="col-md-4 mb-3"><label for="lHouseNo">House No.(घर नं. ) </label><input type="text" class="form-control" placeholder="House No."</div>
+						  </div>	
+						   <div class="col-md-4 mb-3"><label for="lStreet">Street/Tole (टोल )*</label><input type="text" class="form-control" placeholder="Street No"</div>
+						  </div>
+						   <div class="col-md-4 mb-3"><label for="ltelno">Tel.No.(फोन नं) </label><input type="text" class="form-control" placeholder="Telephone No"</div>
+						  </div>	
+						   <div class="col-md-4 mb-3"><label for="P.Box.No">P.Box. No.</label><input type="text" class="form-control" placeholder="Post Box. No."</div>
+						  </div>	
+					 </div>	
+				 </div>
+				 <!--permanent Adress Panel Ending -->
+	 
+				 <!--Temporary Adress Panel Start -->
+				  <div class="panel-body"> 
+					
+				  <h4 >Current Address</h4>	
+				   <div class="form-group row">	
+					  <div class="col-md-4 mb-3"><label for="lzone">Zone *</label>{{form1.zone}}
+	 
+								</div>
+						   <div class="col-md-4 mb-3"><label for="lDistrict">District (जिल्ला) *</label>{{form1.district}}
+							</div>
+							<div class="col-md-4 mb-3"><label for="lProvience">Provience*</label>{{form1.provience}}
+						   </div>
+						   <div class="col-md-4 mb-3"><label for="lMunicipalityVdc">Municipality/VDC (न.पा/गा.वि.स.)*</label>{{form1.muni_vdc}}</div>
+						   <div class="col-md-3"><label for="lWard No.">Ward No.(वडा नं ) *</label>{{form1.ward_no}}
+						  </div>	
+						   <div class="col-md-4 mb-3"><label for="lHouseNo">House No.(घर नं. ) </label>{{form1.house_no}}
+						  </div>	
+						   <div class="col-md-4 mb-3"><label for="lStreet">Street/Tole (टोल ) *</label>{{form1.street}}
+						  </div>
+						   <div class="col-md-4 mb-3"><label for="ltelno">Tel.No.(फोन नं) </label>{{form1.tel_n0}}
+						  </div>	
+						  <div class="col-md-3 mb-3"><label for="P.Box.No">P.Box. No.</label>{{form1.post_box}}
+						  </div>
+						  <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Location Map(फोटो){{form1.l_image}}</span></div>	
+				 </div>
+				 </div>
+				 <!--Temporary Adress Panel Ending-->
+				
+			  </div>
+        </div>
+        <div id="tab3" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
+            <div  class="panel panel-primary " >
+                <div class="panel-body">
+                    <div class="form-group row">
+                    <h4>Details of Family Member</h4>
+                        <table class="table table-bordered">
+                         <thead >
+                             <tr>
+                                 <th>S.N.</th>
+                                 <th>Relation</th>
+                                 <th>Family Member Full Name</th>
+                                 <th>Remarks</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <tr>
+                                 <td>1</td>
+                                 <td></td>					               
+                                 <td><input type="text" class="form-control"></td>  
+                                 <td><input type="text" class="form-control"></td>					                					       	
+                                </tr>
+                                <tr>
+                                 <td>2</td>
+                                 <td></td>					               
+                                 <td><input type="text" class="form-control"></td>  
+                                 <td><input type="text" class="form-control"></td>
+                                                                                                    
+                                </tr>
+                                <tr>
+                                 <td>3</td>
+                                 <td></td>					               
+                                 <td><input type="text" class="form-control"></td>  
+                                 <td><input type="text" class="form-control"></td>
+                                                                                                   
+                                </tr>
+                                <tr>
+                                 <td>4</td>
+                                 <td></td>					               
+                                 <td><input type="text" class="form-control"></td>  
+                                 <td><input type="text" class="form-control"></td>
+                                                                                                
+                                </tr>
+                                <tr>
+                                 <td>5</td>
+                                 <td></td>					               
+                                 <td><input type="text" class="form-control"></td>  
+                                 <td><input type="text" class="form-control"></td>
+                                                                                                       
+                                </tr>
+                                <tr>
+                                 <td>6</td>
+                                 <td></td>					               
+                                 <td><input type="text" class="form-control"></td>  
+                                 <td><input type="text" class="form-control"></td>
+                                
+                                </tr>
+                                <tr>
+                                 <td>7</td>
+                                 <td></td>					               
+                                 <td><input type="text" class="form-control"></td>  
+                                 <td><input type="text" class="form-control"></td>
+                                                                                                   
+                                </tr>
+                                <tr>
+                                 <td>8</td>
+                                 <td></td>					               
+                                 <td><input type="text" class="form-control"></td>  
+                                 <td><input type="text" class="form-control"></td>				                					       	
+                                </tr>
+                              
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="tab4" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
+            <div  class="panel panel-primary " >
+                <div class="panel-body">
+                    <div class="form-group row">
+                    <h4>Details of Income Source</h4>
+                        <table class="table table-bordered">
+                         <thead >
+                             <tr>
+                                 <th>S.N.</th>
+                                 <th>Name of the Employer Organization</th>
+                                 <th>Address</th>
+                                 <th>Designation</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <tr>
+                                 <td></td>
+                                 <td></td>					               
+                                 <td><input type="text" class="form-control"></td>  
+                                 <td><input type="text" class="form-control"></td>					                					       	
+                                </tr>
+                                <tr>
+                                 <td></td>
+                                 <td></td>					               
+                                 <td><input type="text" class="form-control"></td>  
+                                 <td><input type="text" class="form-control"></td>
+                                                                                                    
+                                </tr>
+                                
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <!-- Include optional progressbar HTML -->
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+</div>
+</form>
+</div>
+<script>
+    $(function() {
+        // SmartWizard initialize
+        $('#smartwizard').smartWizard();
+    });
+ </script>
+ {% endblock %}

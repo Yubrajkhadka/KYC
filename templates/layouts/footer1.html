@@ -10,7 +10,7 @@
                  <div class="information_f">
                    <p><strong>ADDRESS:</strong> 28 Putalisadak, Kathmandu, Nepal</p>
                    <p><strong>TELEPHONE:</strong> 9861562381</p>
-                   <p><strong>EMAIL:</strong>yubraj@kcc.edu.np</p>
+                   <p><strong>EMAIL:</strong>yubrajkhadka@kcc.edu.np</p>
                  </div>
               </div>
           </div>
@@ -75,21 +75,28 @@
  </div>
  <!-- jQery -->
  {% load static %}
- <script src="{% static 'js/jquery-3.4.1.min.js'%}"></script>
+ <!-- <script src="{% static 'js/jquery-3.4.1.min.js'%}"></script> -->
  <!-- popper js -->
  <script src="{% static 'js/popper.min.js'%}"></script>
  <!-- bootstrap js -->
  <script src="{% static 'js/bootstrap.js'%}"></script>
  <!-- custom js -->
  <script src="{% static 'js/custom.js'%}"></script>
- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+ <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  -->
+ <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
  <script>
    $(document).ready(function() {
       setTimeout(function() {
           $('.alert-sucess').hide('slow')
-      }, 150000);
+      }, 1500);
   });
+
  </script>
+ <script>
+   $(function() {
+       // SmartWizard initialize
+       $('#smartwizard').smartWizard();
+   });
+</script>
 </body>
 </html>

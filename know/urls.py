@@ -10,7 +10,7 @@ urlpatterns = [
     path('login/',authview.loginpage, name = 'loginpage'),
     path('logout/',authview.logoutpage, name ='logout'),
 
-    path('kyc',views.kyc,name='kyc'),
+    path('kyc/',views.kyc,name='kyc'),
 
 
 

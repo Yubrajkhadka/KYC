@@ -1,27 +1,28 @@
 {% extends 'master/master.html '%} {% block content %}
-<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
-<h4 align="center"style="color:red">KNOW YOUR CUSTOMER (KYC) APPLICATION FORM  </h4>  
-<div class="container">
-	<div class="panel panel-primary">						
-	  <ul class="nav nav-pills mb-3">
-		<li class="nav-item ">
-		  <a class="nav-link active" href="#tab2">Identification Details</a>
-		</li>
-		<li class="nav-item ">
-		  <a class="nav-link" href="#tab3">Address</a>
-		</li>
-		<li class="nav-item ">
-		  <a class="nav-link" href="#tab4">Family Description</a>
-		</li>
-		<li class="nav-item ">
-		  <a class="nav-link" href="#tab5">Income/Expense Details</a>
-		</li>
-	  </ul>
-	</div>	
-  </div>
-  <div class="tab-content">
-    <div id="tab2"   class="row justify-content-center align-items-center">
-        <div  class="panel panel-primary border border-dark  col-lg-6 col-md-8 col-sm-10 col-12" >
+<br><br>
+<!-- CSS -->
+<link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+<!-- JavaScript -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
+
+
+<form>
+<h4 align="center" style="color:blueviolet">KNOW YOUR CUSTOMER (KYC) APPLICATION FORM</h4>
+<br>
+<div class="container " id="smartwizard" >					
+        <div  class="panel panel-primary" >						
+			<ul class="nav nav-pills">
+			  <li class="active"><a href="#tab1">Personal Identification</a></li>
+			  <li><a href="#tab2">Address</a></li>
+			  <li><a href="#tab3">Family Description</a></li>
+			  <li><a href="#tab4">Income/Expense Details</a></li>
+			</ul>
+		</div>		
+  <br>
+<div class="tab-content center" >
+	<div id="tab1" class="tab-pane fade in active">
+        <div  class="panel panel-primary" >
             <div class="panel-body">
                 <div class="form-group row">
                     <div class="col-md-4 mb-3">
@@ -36,7 +37,6 @@
                         <label for="lname" class="text-dark">Last Name (अन्तिम अर्थात् थर) *</label>
                         <input type="text" class="form-control" placeholder="">
                     </div>
-					
                     
                 </div>
             </div>
@@ -149,285 +149,101 @@
 					<div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Back-Photo (फोटो)<input type="file"></span></div>
 
 				</div>
-			</div>
-			
-			<div class="panel-body">
-				<div class="form-group row">
-				<h4>Details of Family Member</h4>
-					<table class="table table-bordered">
-					 <thead >
-						 <tr>
-							 <th>S.N.</th>
-							 <th>Relation</th>
-							 <th>Family Member Full Name</th>
-							 <th>Age</th>
-							 <th>Gender</th>
-							 <th>Main Occupation</th>
-							 <th>Education</th>
-							 <th>Monthly Income</th>
-							 <th>Citizenship No.</th>
-							 <th>Mobile No.</th>
-						 </tr>
-					 </thead>
-					 <tbody>
-						 <tr>
-							 <td>1</td>
-							 <td>Spouce</td>					               
-							 <td><input type="text" class="form-control"></td>  
-							 <td><input type="text" class="form-control"></td>
-							 <td><select name="Gender" class="form-control beta">
-									 <option value="male">Male</option>
-										<option value="female">Female</option>
-										<option value="others">Others</option>				           					
-									</select>
-								</td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><select name="Education" class="form-control beta">
-									 <option value="masters">Masters</option>
-										<option value="bachelors">Bachelors</option>
-										<option value="intermediate">Intermediate/+2</option>
-										<option value="slc">SLC</option>
-										<option value="eightpass">8 Class Pass</option>				    
-										<option value="fivepass">5 Class Pass</option>
-										<option value="underfive">Under 5</option>
-										<option value="literate">literate</option>
-										<option value="illiterate">illiterate</option>
-									</select>
-							   </td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><input type="text" class="form-control"></td>						                					       	
-							</tr>
-							<tr>
-							 <td>2</td>
-							 <td>Father (बाबुको नाम)</td>					               
-							 <td><input type="text" class="form-control"></td>  
-							 <td><input type="text" class="form-control"></td>
-							 <td><select name="Gender" class="form-control beta">
-									 <option value="male">Male</option>
-										<option value="female">Female</option>
-										<option value="others">Others</option>				           					
-									</select>
-								</td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><select name="Education" class="form-control beta">
-									 <option value="masters">Masters</option>
-										<option value="bachelors">Bachelors</option>
-										<option value="intermediate">Intermediate/+2</option>
-										<option value="slc">SLC</option>
-										<option value="eightpass">8 Class Pass</option>				    
-										<option value="fivepass">5 Class Pass</option>
-										<option value="underfive">Under 5</option>
-										<option value="literate">literate</option>
-										<option value="illiterate">illiterate</option>
-									</select>
-							   </td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><input type="text" class="form-control"></td>						                					       	
-							</tr>
-							<tr>
-							 <td>3</td>
-							 <td>Mother</td>					               
-							 <td><input type="text" class="form-control"></td>  
-							 <td><input type="text" class="form-control"></td>
-							 <td><select name="Gender" class="form-control beta">
-									 <option value="male">Male</option>
-										<option value="female">Female</option>
-										<option value="others">Others</option>				           					
-									</select>
-								</td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><select name="Education" class="form-control beta">
-									 <option value="masters">Masters</option>
-										<option value="bachelors">Bachelors</option>
-										<option value="intermediate">Intermediate/+2</option>
-										<option value="slc">SLC</option>
-										<option value="eightpass">8 Class Pass</option>				    
-										<option value="fivepass">5 Class Pass</option>
-										<option value="underfive">Under 5</option>
-										<option value="literate">literate</option>
-										<option value="illiterate">illiterate</option>
-									</select>
-							   </td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><input type="text" class="form-control"></td>						                					       	
-							</tr>
-							<tr>
-							 <td>4</td>
-							 <td>Father-in-Law</td>					               
-							 <td><input type="text" class="form-control"></td>  
-							 <td><input type="text" class="form-control"></td>
-							 <td><select name="Gender" class="form-control beta">
-									 <option value="male">Male</option>
-										<option value="female">Female</option>
-										<option value="others">Others</option>				           					
-									</select>
-								</td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><select name="Education" class="form-control beta">
-									 <option value="masters">Masters</option>
-										<option value="bachelors">Bachelors</option>
-										<option value="intermediate">Intermediate/+2</option>
-										<option value="slc">SLC</option>
-										<option value="eightpass">8 Class Pass</option>				    
-										<option value="fivepass">5 Class Pass</option>
-										<option value="underfive">Under 5</option>
-										<option value="literate">literate</option>
-										<option value="illiterate">illiterate</option>
-									</select>
-							   </td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><input type="text" class="form-control"></td>	
-							   <td><input type="text" class="form-control"></td>					                					       	
-							</tr>
-							<tr>
-							 <td>5</td>
-							 <td>GrandFather/GrandFather-in-Law</td>					               
-							 <td><input type="text" class="form-control"></td>  
-							 <td><input type="text" class="form-control"></td>
-							 <td><select name="Gender" class="form-control beta">
-									 <option value="male">Male</option>
-										<option value="female">Female</option>
-										<option value="others">Others</option>				           					
-									</select>
-								</td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><select name="Education" class="form-control beta">
-									 <option value="masters">Masters</option>
-										<option value="bachelors">Bachelors</option>
-										<option value="intermediate">Intermediate/+2</option>
-										<option value="slc">SLC</option>
-										<option value="eightpass">8 Class Pass</option>				    
-										<option value="fivepass">5 Class Pass</option>
-										<option value="underfive">Under 5</option>
-										<option value="literate">literate</option>
-										<option value="illiterate">illiterate</option>
-									</select>
-							   </td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><input type="text" class="form-control"></td>						                					       	
-							</tr>
-							<tr>
-							 <td>6</td>
-							 <td>Son 1</td>					               
-							 <td><input type="text" class="form-control"></td>  
-							 <td><input type="text" class="form-control"></td>
-							 <td><select name="Gender" class="form-control beta">
-									 <option value="male">Male</option>
-										<option value="female">Female</option>
-										<option value="others">Others</option>				           					
-									</select>
-								</td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><select name="Education" class="form-control beta">
-									 <option value="masters">Masters</option>
-										<option value="bachelors">Bachelors</option>
-										<option value="intermediate">Intermediate/+2</option>
-										<option value="slc">SLC</option>
-										<option value="eightpass">8 Class Pass</option>				    
-										<option value="fivepass">5 Class Pass</option>
-										<option value="underfive">Under 5</option>
-										<option value="literate">literate</option>
-										<option value="illiterate">illiterate</option>
-									</select>
-							   </td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><input type="text" class="form-control"></td>						                					       	
-							</tr>
-							<tr>
-							 <td>7</td>
-							 <td>Son 2</td>					               
-							 <td><input type="text" class="form-control"></td>  
-							 <td><input type="text" class="form-control"></td>
-							 <td><select name="Gender" class="form-control beta">
-									 <option value="male">Male</option>
-										<option value="female">Female</option>
-										<option value="others">Others</option>				           					
-									</select>
-								</td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><select name="Education" class="form-control beta">
-									 <option value="masters">Masters</option>
-										<option value="bachelors">Bachelors</option>
-										<option value="intermediate">Intermediate/+2</option>
-										<option value="slc">SLC</option>
-										<option value="eightpass">8 Class Pass</option>				    
-										<option value="fivepass">5 Class Pass</option>
-										<option value="underfive">Under 5</option>
-										<option value="literate">literate</option>
-										<option value="illiterate">illiterate</option>
-									</select>
-							   </td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><input type="text" class="form-control"></td>						                					       	
-							</tr>
-							<tr>
-							 <td>8</td>
-							 <td>Daughter 1</td>					               
-							 <td><input type="text" class="form-control"></td>  
-							 <td><input type="text" class="form-control"></td>
-							 <td><select name="Gender" class="form-control beta">
-									 <option value="male">Male</option>
-										<option value="female">Female</option>
-										<option value="others">Others</option>				           					
-									</select>
-								</td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><select name="Education" class="form-control beta">
-									 <option value="masters">Masters</option>
-										<option value="bachelors">Bachelors</option>
-										<option value="intermediate">Intermediate/+2</option>
-										<option value="slc">SLC</option>
-										<option value="eightpass">8 Class Pass</option>				    
-										<option value="fivepass">5 Class Pass</option>
-										<option value="underfive">Under 5</option>
-										<option value="literate">literate</option>
-										<option value="illiterate">illiterate</option>
-									</select>
-							   </td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><input type="text" class="form-control"></td>	
-							   <td><input type="text" class="form-control"></td>					                					       	
-							</tr>
-							<tr>
-							 <td>9</td>
-							 <td>Daughter 2</td>					               
-							 <td><input type="text" class="form-control"></td>  
-							 <td><input type="text" class="form-control"></td>
-							 <td><select name="Gender" class="form-control beta">
-									 <option value="male">Male</option>
-										<option value="female">Female</option>
-										<option value="others">Others</option>				           					
-									</select>
-								</td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><select name="Education" class="form-control beta">
-									 <option value="masters">Masters</option>
-										<option value="bachelors">Bachelors</option>
-										<option value="intermediate">Intermediate/+2</option>
-										<option value="slc">SLC</option>
-										<option value="eightpass">8 Class Pass</option>				    
-										<option value="fivepass">5 Class Pass</option>
-										<option value="underfive">Under 5</option>
-										<option value="literate">literate</option>
-										<option value="illiterate">illiterate</option>
-									</select>
-							   </td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><input type="text" class="form-control"></td>
-							   <td><input type="text" class="form-control"></td>						                					       	
-							</tr>
-						</tbody>
-					</table>
+		</div>
+		
+	</div>
+	</div>
+  			<br><br>
+			  <div id="tab2" class="tab-pane ">
+				<div  class="panel panel-primary " >
+					<div class="panel-body">
+						<div class="form-group row">
+						<h4>Details of Family Member</h4>
+							<table class="table table-bordered">
+							 <thead >
+								 <tr>
+									 <th>S.N.</th>
+									 <th>Relation</th>
+									 <th>Family Member Full Name</th>
+									 <th>Remarks</th>
+								 </tr>
+							 </thead>
+							 <tbody>
+								 <tr>
+									 <td>1</td>
+									 <td>Spouce</td>					               
+									 <td><input type="text" class="form-control"></td>  
+									 <td><input type="text" class="form-control"></td>					                					       	
+									</tr>
+									<tr>
+									 <td>2</td>
+									 <td>Father (बाबुको नाम)</td>					               
+									 <td><input type="text" class="form-control"></td>  
+									 <td><input type="text" class="form-control"></td>
+									 					                					       	
+									</tr>
+									<tr>
+									 <td>3</td>
+									 <td>Mother</td>					               
+									 <td><input type="text" class="form-control"></td>  
+									 <td><input type="text" class="form-control"></td>
+														                					       	
+									</tr>
+									<tr>
+									 <td>4</td>
+									 <td>Father-in-Law</td>					               
+									 <td><input type="text" class="form-control"></td>  
+									 <td><input type="text" class="form-control"></td>
+									 				                					       	
+									</tr>
+									<tr>
+									 <td>5</td>
+									 <td>GrandFather/GrandFather-in-Law</td>					               
+									 <td><input type="text" class="form-control"></td>  
+									 <td><input type="text" class="form-control"></td>
+															                					       	
+									</tr>
+									<tr>
+									 <td>6</td>
+									 <td>Son 1</td>					               
+									 <td><input type="text" class="form-control"></td>  
+									 <td><input type="text" class="form-control"></td>
+									
+									</tr>
+									<tr>
+									 <td>7</td>
+									 <td>Son 2</td>					               
+									 <td><input type="text" class="form-control"></td>  
+									 <td><input type="text" class="form-control"></td>
+														                					       	
+									</tr>
+									<tr>
+									 <td>8</td>
+									 <td>Daughter 1</td>					               
+									 <td><input type="text" class="form-control"></td>  
+									 <td><input type="text" class="form-control"></td>				                					       	
+									</tr>
+									<tr>
+									 <td>9</td>
+									 <td>Daughter 2</td>					               
+									 <td><input type="text" class="form-control"></td>  
+									 <td><input type="text" class="form-control"></td>
+														                					       	
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="panel-footer col-md-4">
+						<button type="button" class="btn btn-primary btnPrevious">Back</button>
+						<button type="button" class="btn btn-primary btnNext" style="float: right;">Next</button>
+					</div>
 				</div>
 			</div>
-			
-				<div id="tab3"   class="row justify-content-center align-items-center">
+			<br>
+			<br>
+			<div id="tab3" class="tab-pane ">
+				<div  class="panel panel-primary" >
 				<!--Permanent Adress Panel Start -->
 				  <div class="panel-body">  
 					<h4>Permanent Address (स्थायी ठेगाना)</h4> 
@@ -446,6 +262,16 @@
 									<option value="L">Lalitpur</option>
 								 </select>
 							</div>
+							<div class="col-md-4 mb-3"><label for="lProvience">Provience*</label><select name="provience" class="form-control beta">
+								<option value="B">Bagmati</option>
+								   <option value="K">Koshi</option>
+								   <option value="M">Madhesh</option>
+								   <option value="G">Gandaki</option>
+								   <option value="L">Lumbini</option>
+								   <option value = "KA">Karnali</option>
+								   <option value="S">Sudurpashchim</option>
+								</select>
+						   </div>
 						   <div class="col-md-4 mb-3"><label for="lMunicipalityVdc">Municipality/VDC (न.पा/गा.वि.स.)*</label><input type="text" class="form-control" placeholder="Municipality/Zone"</div></div>
 						   <div class="col-md-4 mb-3"><label for="lWard No.">Ward No.(वडा नं ) *</label><input type="text" class="form-control" placeholder="Ward No."</div>
 						  </div>	
@@ -479,6 +305,16 @@
 									<option value="L">Lalitpur</option>
 								 </select>
 							</div>
+							<div class="col-md-4 mb-3"><label for="lProvience">Provience*</label><select name="provience" class="form-control beta">
+								<option value="B">Bagmati</option>
+								   <option value="K">Koshi</option>
+								   <option value="M">Madhesh</option>
+								   <option value="G">Gandaki</option>
+								   <option value="L">Lumbini</option>
+								   <option value = "KA">Karnali</option>
+								   <option value="S">Sudurpashchim</option>
+								</select>
+						   </div>
 						   <div class="col-md-4 mb-3"><label for="lMunicipalityVdc">Municipality/VDC (न.पा/गा.वि.स.)*</label><input type="text" class="form-control" placeholder="Municipality/Zone"</div></div>
 						   <div class="col-md-3"><label for="lWard No.">Ward No.(वडा नं ) *</label><input type="text" class="form-control" placeholder="Ward No."</div>
 						  </div>	
@@ -489,7 +325,8 @@
 						   <div class="col-md-4 mb-3"><label for="ltelno">Tel.No.(फोन नं) </label><input type="text" class="form-control" placeholder="Telephone No."</div>
 						  </div>	
 						  <div class="col-md-3 mb-3"><label for="P.Box.No">P.Box. No.</label><input type="text" class="form-control" placeholder="Post Box No."</div>
-						  </div>	
+						  </div>
+						  <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Location Map(फोटो)<input type="file"></span></div>	
 				 </div>
 				 </div>
 				 <!--Temporary Adress Panel Ending-->
@@ -498,11 +335,57 @@
 					 <button type="button" class="btn btn-primary btnNext" style="float: right;">Next</button>
 				 </div>
 			  </div>
-			  </div>
-        </div> 
+	</div>
+	<br><br><br>
+	<div id="tab4" class="tab-pane ">
+		<div  class="panel panel-primary " >
+			<div class="panel-body">
+				<div class="form-group row">
+				<h4>Details of Income Source</h4>
+					<table class="table table-bordered">
+					 <thead >
+						 <tr>
+							 <th>S.N.</th>
+							 <th>Name of the Employer Organization</th>
+							 <th>Address</th>
+							 <th>Designation</th>
+						 </tr>
+					 </thead>
+					 <tbody>
+						 <tr>
+							 <td></td>
+							 <td></td>					               
+							 <td><input type="text" class="form-control"></td>  
+							 <td><input type="text" class="form-control"></td>					                					       	
+							</tr>
+							<tr>
+							 <td></td>
+							 <td></td>					               
+							 <td><input type="text" class="form-control"></td>  
+							 <td><input type="text" class="form-control"></td>
+																								
+							</tr>
+							
+						
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer col-md-4">
+				<button type="button" class="btn btn-primary btnPrevious">Back</button>
+				<button type="button" class="btn btn-primary btnNext" style="float: right;">Next</button>
+			</div>
+		</div>
 		
 	</div>
 </div>
-
-
+</div>
+</div>
+</form>
+<script>
+    $(function() {
+        // SmartWizard initialize
+        $('#smartwizard').smartWizard();
+    });
+</script>
 {% endblock %}

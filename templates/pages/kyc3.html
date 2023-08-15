@@ -13,8 +13,9 @@
 
 <!-- SmartWizard html -->
 <div class="container">
-<form  method="post" enctype="multipart/form-data">
-    {% csrf_token %}
+    {%if messages %} {% for message in messages %}
+    <div class="alert alert-sucess" style="background-color: #ffc107; color:#000000;">{{message}}</div>
+    {% endfor %} {% endif %}
     <h4 style="text-align: center; color: #009EF7; font-weight: 900;">KNOW YOUR CUSTOMER (KYC) APPLICATION FORM</h4>
 <br>
 <div id="smartwizard" class = "center mx-auto">
@@ -43,7 +44,9 @@
         </li>
     </ul>
     <br><br><br>
-
+    <form  method="post" enctype="multipart/form-data">
+        
+    {% csrf_token %}
     <div class="tab-content center">
         <div id="tab1 "class="tab-pane" role="tabpanel" aria-labelledby="step-1">
             <div  class="panel panel-primary" >
@@ -52,17 +55,23 @@
                         <div class="col-md-4 mb-3">
                             <label for="fname"class="text-dark">First Name (पहिलो नाम )*</label>
                             {{form.firstname}}
-                            <!-- <input type="text" class="form-control" placeholder=""> -->
+                            {% if form.errors.firstname %}
+                            <label class = "text-danger">{{ form.errors.firstname}}</label>
+                             {% endif %}
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="mname" class="text-dark">Middle Name (बीचको नाम )</label>
                             {{form.middlename}}
-                            <!-- <input type="text" class="form-control" placeholder=""> -->
+                            {% if form.errors.middlename %}
+                            <label class = "text-danger">{{ form.errors.middlename}}</label>
+                        {% endif %}
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="lname" class="text-dark">Last Name (अन्तिम अर्थात् थर) *</label>
                             {{form.lastname}}
-                            <!-- <input type="text" class="form-control" placeholder=""> -->
+                            {% if form.errors.lastname %}
+                            <label class = "text-danger">{{ form.errors.lastname}}</label>
+                        {% endif %}
                         </div>
                         
                     </div>
@@ -71,10 +80,14 @@
                     <div class="form-group row">
                         <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Photo (फोटो){{form.image}}</span></div>
                       <div class="col-md-4 mb-3">
-                        <label for="fhusband">Father (बाबुको नाम *)</label> {{form.fathername}} </div>
+                        <label for="fhusband">Father (बाबुको नाम *)</label> {{form.fathername}}   {% if form.errors.fathername %}
+                        <label class = "text-danger">{{ form.errors.fathername}}</label>
+                    {% endif %}</div>
                     
                         <div class="col-md-4 mb-3">
-                            <label for="fhusband">Grand Father *</label>{{form.grandfather}}</div>
+                            <label for="fhusband">Grand Father *</label>{{form.grandfather}}   {% if form.errors.grandfather %}
+                            <label class = "text-danger">{{ form.errors.grandfather}}</label>
+                        {% endif %}</div>
                     </div>
                 </div>
                 <div class="panel-body">
@@ -110,9 +123,7 @@
                             {{form.citizenshipnumber}}
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label>Issued From (जारी गर्ने जिल्ला) *</label>{% for i in province %}
-                            <p>{{ i.name }}</p>
-                         {% endfor %}
+                            <label>Issued From (जारी गर्ने जिल्ला) *</label>{{form.citizen_issued_district}}
                                 
                         </div>
                         <div class="col-md-4 mb-3">
@@ -162,10 +173,11 @@
     
                     </div>
             </div>
-            
+                     
+            <button type="submit">Submit</button>
+        </div>  
         </div>
-            
-        </div>
+       
         <!-- ... (other tab-pane elements) ... -->
         <div id="tab2" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
             <div  class="panel panel-primary" >
@@ -174,42 +186,40 @@
 					<h4>Permanent Address (स्थायी ठेगाना)</h4> 
 						 	
 						  <div class="form-group row">
-							<div class="col-md-4 mb-3"><label for="lzone">Zone *</label>{{ address_form.zone}}
-	 
-								</div>
-						   <div class="col-md-4 mb-3"><label for="lDistrict">District (जिल्ला)*</label><select name="district" class="form-control beta">
-								 <option value="K">Kathmandu</option>
-									<option value="B">Bhaktapur</option>
-									<option value="L">Lalitpur</option>
-								 </select>
+            
+							<div class="col-md-4 mb-3"><label for="lzone">Zone *</label>{{ form1.zone}}</div>
+						   <div class="col-md-4 mb-3"><label for="lDistrict">District (जिल्ला)*</label>{{form1.district}}
 							</div>
-							<div class="col-md-4 mb-3"><label for="lProvience">Provience*</label><select name="provience" class="form-control beta">
-								<option value="B">Bagmati</option>
-								   <option value="K">Koshi</option>
-								   <option value="M">Madhesh</option>
-								   <option value="G">Gandaki</option>
-								   <option value="L">Lumbini</option>
-								   <option value = "KA">Karnali</option>
-								   <option value="S">Sudurpashchim</option>
-								</select>
+							<div class="col-md-4 mb-3"><label for="lProvience">Provience*</label>{{form1.provience}}
 						   </div>
-						   <div class="col-md-4 mb-3"><label for="lMunicipalityVdc">Municipality/VDC (न.पा/गा.वि.स.)*</label><input type="text" class="form-control" placeholder="Municipality/Zone"</div></div>
-						   <div class="col-md-4 mb-3"><label for="lWard No.">Ward No.(वडा नं ) *</label><input type="text" class="form-control" placeholder="Ward No."</div>
+						   <div class="col-md-4 mb-3"><label for="lMunicipalityVdc">Municipality/VDC (न.पा/गा.वि.स.)*</label>{{form1.muni_vdc}}</div>
+						   <div class="col-md-4 mb-3"><label for="lWard No.">Ward No.(वडा नं ) *</label>{{form1.ward_no}}
 						  </div>	
-						   <div class="col-md-4 mb-3"><label for="lHouseNo">House No.(घर नं. ) </label><input type="text" class="form-control" placeholder="House No."</div>
+						   <div class="col-md-4 mb-3"><label for="lHouseNo">House No.(घर नं. ) </label>{{form1.house_no}}
 						  </div>	
-						   <div class="col-md-4 mb-3"><label for="lStreet">Street/Tole (टोल )*</label><input type="text" class="form-control" placeholder="Street No"</div>
+						   <div class="col-md-4 mb-3"><label for="lStreet">Street/Tole (टोल )*</label>{{form1.street}}
 						  </div>
-						   <div class="col-md-4 mb-3"><label for="ltelno">Tel.No.(फोन नं) </label><input type="text" class="form-control" placeholder="Telephone No"</div>
+						   <div class="col-md-4 mb-3"><label for="ltelno">Tel.No.(फोन नं) </label>{{form1.tel_n0}}
 						  </div>	
-						   <div class="col-md-4 mb-3"><label for="P.Box.No">P.Box. No.</label><input type="text" class="form-control" placeholder="Post Box. No."</div>
-						  </div>	
+						   <div class="col-md-4 mb-3"><label for="P.Box.No">P.Box. No.</label>{{form1.post_box}}
+						  </div>
+                          <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Back-Photo (फोटो){{form1.l_image}}</span></div>		
 					 </div>	
 				 </div>
 				 <!--permanent Adress Panel Ending -->
-	 
+                 <div class="panel-body">
+                    <h4>Current Address is Same as Permanent?</h4>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="addressOption" value="yes" id="sameAddressRadioYes">
+                        <label class="form-check-label" for="sameAddressRadioYes">Yes</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="addressOption" value="no" id="sameAddressRadioNo">
+                        <label class="form-check-label" for="sameAddressRadioNo">No</label>
+                    </div>
+                </div>
 				 <!--Temporary Adress Panel Start -->
-				  <div class="panel-body"> 
+				  <div class="panel-body" id="temporaryAddressSection"> 
 					
 				  <h4 >Current Address</h4>	
 				   <div class="form-group row">	
@@ -231,7 +241,7 @@
 						  </div>	
 						  <div class="col-md-3 mb-3"><label for="P.Box.No">P.Box. No.</label>{{form1.post_box}}
 						  </div>
-						  <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Location Map(फोटो){{form1.l_image}}</span></div>	
+                          <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Location-Photo (फोटो){{form1.l_image}}</span></div>	
 				 </div>
 				 </div>
 				 <!--Temporary Adress Panel Ending-->
@@ -255,59 +265,43 @@
                          <tbody>
                              <tr>
                                  <td>1</td>
-                                 <td></td>					               
-                                 <td><input type="text" class="form-control"></td>  
-                                 <td><input type="text" class="form-control"></td>					                					       	
+                                 <td>{{form3.f_relation}}</td>					               
+                                 <td>{{form3.f_fullname }}</td>  
+                                 <td>{{form3.f_remarks}}</td>					                					       	
                                 </tr>
                                 <tr>
                                  <td>2</td>
-                                 <td></td>					               
-                                 <td><input type="text" class="form-control"></td>  
-                                 <td><input type="text" class="form-control"></td>
+                                 <td>{{form3.f_relation}}</td>					               
+                                 <td>{{form3.f_fullname }}</td>  
+                                 <td>{{form3.f_remarks}}</td>	
                                                                                                     
                                 </tr>
                                 <tr>
                                  <td>3</td>
-                                 <td></td>					               
-                                 <td><input type="text" class="form-control"></td>  
-                                 <td><input type="text" class="form-control"></td>
+                                 <td>{{form3.f_relation}}</td>					               
+                                 <td>{{form3.f_fullname }}</td>  
+                                 <td>{{form3.f_remarks}}</td>	
                                                                                                    
                                 </tr>
                                 <tr>
                                  <td>4</td>
-                                 <td></td>					               
-                                 <td><input type="text" class="form-control"></td>  
-                                 <td><input type="text" class="form-control"></td>
+                                 <td>{{form3.f_relation}}</td>					               
+                                 <td>{{form3.f_fullname }}</td>  
+                                 <td>{{form3.f_remarks}}</td>
                                                                                                 
                                 </tr>
                                 <tr>
                                  <td>5</td>
-                                 <td></td>					               
-                                 <td><input type="text" class="form-control"></td>  
-                                 <td><input type="text" class="form-control"></td>
-                                                                                                       
+                                 <td>{{form3.f_relation}}</td>					               
+                                 <td>{{form3.f_fullname }}</td>  
+                                 <td>{{form3.f_remarks}}</td>                   
                                 </tr>
                                 <tr>
                                  <td>6</td>
-                                 <td></td>					               
-                                 <td><input type="text" class="form-control"></td>  
-                                 <td><input type="text" class="form-control"></td>
-                                
+                                 <td>{{form3.f_relation}}</td>					               
+                                 <td>{{form3.f_fullname }}</td>  
+                                 <td>{{form3.f_remarks}}</td>
                                 </tr>
-                                <tr>
-                                 <td>7</td>
-                                 <td></td>					               
-                                 <td><input type="text" class="form-control"></td>  
-                                 <td><input type="text" class="form-control"></td>
-                                                                                                   
-                                </tr>
-                                <tr>
-                                 <td>8</td>
-                                 <td></td>					               
-                                 <td><input type="text" class="form-control"></td>  
-                                 <td><input type="text" class="form-control"></td>				                					       	
-                                </tr>
-                              
                             </tbody>
                         </table>
                     </div>
@@ -330,35 +324,41 @@
                          </thead>
                          <tbody>
                              <tr>
-                                 <td></td>
-                                 <td></td>					               
-                                 <td><input type="text" class="form-control"></td>  
-                                 <td><input type="text" class="form-control"></td>					                					       	
+                                 <td>1</td>
+                                 <td>{{form2.organization}}</td>					               
+                                 <td>{{form2.address}}</td>  
+                                 <td>{{form2.designation}}</td>					                					       	
                                 </tr>
                                 <tr>
-                                 <td></td>
-                                 <td></td>					               
-                                 <td><input type="text" class="form-control"></td>  
-                                 <td><input type="text" class="form-control"></td>
-                                                                                                    
+                                 <td>2</td>
+                                 <td>{{form2.organization}}</td>					               
+                                 <td>{{form2.address}}</td>  
+                                 <td>{{form2.designation}}</td>		                                                                    
                                 </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>{{form2.organization}}</td>					               
+                                    <td>{{form2.address}}</td>  
+                                    <td>{{form2.designation}}</td>		                                                                    
+                                   </tr>
                                 
                             
                             </tbody>
                         </table>
+                        
+                <button type="submit">Submit</button>
                     </div>
                 </div>
-            
             </div>
         </div>
     </div>
-
+</form>
     <!-- Include optional progressbar HTML -->
     <div class="progress">
         <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
 </div>
-</form>
+
 </div>
 <script>
     $(function() {
@@ -366,4 +366,23 @@
         $('#smartwizard').smartWizard();
     });
  </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const sameAddressRadioYes = document.getElementById("sameAddressRadioYes");
+        const sameAddressRadioNo = document.getElementById("sameAddressRadioNo");
+        const temporaryAddressSection = document.getElementById("temporaryAddressSection");
+        const mainContent = document.querySelector(".panel-body");
+
+        sameAddressRadioYes.addEventListener("change", function() {
+            temporaryAddressSection.style.display = "none";
+            mainContent.style.marginBottom = "0"; // Reset margin when going back to "Yes"
+        });
+
+        sameAddressRadioNo.addEventListener("change", function() {
+            temporaryAddressSection.style.display = "block";
+            mainContent.style.marginBottom = temporaryAddressSection.clientHeight + "px";
+        });
+    });
+</script>
+
  {% endblock %}

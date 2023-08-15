@@ -34,7 +34,7 @@ NATIONALITY = (
 
 class Person(models.Model):
     firstname = models.CharField(max_length=250)
-    middlename = models.CharField(max_length=255)
+    middlename = models.CharField(max_length=255,blank=True)
     lastname = models.CharField(max_length=255)
     image = models.ImageField(upload_to='photos/images')
     fathername = models.CharField(max_length=255)
@@ -52,14 +52,14 @@ class Person(models.Model):
     passport_number = models.CharField(max_length=20)
     passport_issued_date = models.DateField()
     passport_issued_place = models.CharField(max_length=100)
-    pass_front_photo = models.ImageField(upload_to='passport/front')
-    pass_back_photo = models.ImageField(upload_to='passport/back')
-    other_card = models.CharField(max_length=100)
-    other_card_number = models.CharField(max_length=20)
-    other_card_issued_date = models.DateField()
-    other_card_issued_authority = models.CharField(max_length=100)
-    other_card_front = models.ImageField(upload_to='other/front',default="")
-    other_card_back=models.ImageField(upload_to='other/back',default="")
+    pass_front_photo = models.ImageField(upload_to='passport/front',blank=True)
+    pass_back_photo = models.ImageField(upload_to='passport/back',blank=True)
+    other_card = models.CharField(max_length=100,blank=True)
+    other_card_number = models.CharField(max_length=20,blank=True)
+    other_card_issued_date = models.DateField(blank=True)
+    other_card_issued_authority = models.CharField(max_length=100,blank=True)
+    other_card_front = models.ImageField(upload_to='other/front',default="",blank=True)
+    other_card_back=models.ImageField(upload_to='other/back',default="",blank=True)
     email =models.CharField(max_length=25,default="")
     number = models.CharField(max_length=10,default="")
 
@@ -69,6 +69,7 @@ class Address(models.Model):
     ADDRESS_TYPE_CHOICES = (
         ('permanent', 'Permanent'),
         ('temporary', 'Temporary'),
+        ('both','Both')
     )
     Provience_CHOICES=(
         ('bagmati','Bagmati'),
@@ -94,7 +95,7 @@ class Address(models.Model):
     l_image= models.ImageField(upload_to='location/image',default="")
 
     def __str__(self):
-        return f"{self.address_type} Address for {self.user.username}"
+        return f"{self.address_type} Address for {self.person.firstname}"
 
 class Income(models.Model):
 
@@ -103,7 +104,7 @@ class Income(models.Model):
    address = models.CharField(max_length = 100)
    designation  = models.CharField(max_length =20)
    def __str__(self):
-        return f"Income details for {self.user.username}"
+        return f"Income details for {self.person.firstname}"
    
 
 class Family(models.Model):
@@ -114,4 +115,4 @@ class Family(models.Model):
    f_remarks = models.CharField(max_length=150)
 
    def __str__(self):
-       return f"Family details for {self.user.username}"
+       return f"Family details for {self.person.firstname}"

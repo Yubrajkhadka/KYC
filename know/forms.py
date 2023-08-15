@@ -70,9 +70,9 @@ class PersonForm(forms.ModelForm):
             'firstname':forms.TextInput(attrs={'class':'form-control'}),
             'middlename':forms.TextInput(attrs={'class':'form-control'}),
             'lastname':forms.TextInput(attrs={'class':'form-control'}),
-            'image':forms.ClearableFileInput(attrs={'class': 'form-control-file'}),
+            'image':forms.ClearableFileInput(attrs={'class': 'form-control'}),
             'fathername':forms.TextInput(attrs={'class':'form-control'}),
-            'grandfathername':forms.TextInput(attrs={'class':'form-control'}),
+            'grandfather':forms.TextInput(attrs={'class':'form-control'}),
             'dateofbirth':forms.DateInput(attrs={'class':'form-control','type': 'date'}),
             'gender':forms.Select(attrs={'class': 'form-control'}),
             'married_status':forms.Select(attrs={'class': 'form-control'}),
@@ -98,32 +98,70 @@ class PersonForm(forms.ModelForm):
             'email':forms.TextInput(attrs={'class':'form-control'}),
             }
         
+# class AddressForm(forms.ModelForm):
+#     class Meta:
+#         model = Address
+#         fields = '__all__'
+#         exclude = ['person','address_type']
+#         widgets ={
+        
+#             'zone' : forms.TextInput(attrs={'class':'form-control'}),
+#             'provience':forms.Select(attrs={'class':'form-control'}),
+#             'district':forms.TextInput(attrs={'class':'form-control'}),
+#             'muni_vdc':forms.TextInput(attrs={'class':'form-control'}),
+#             'house_no':forms.TextInput(attrs={'class':'form-control'}),
+#             'ward_no':forms.TextInput(attrs={'class':'form-control'}),
+#             'street':forms.TextInput(attrs={'class':'form-control'}),
+#             'tel_n0':forms.TextInput(attrs={'class':'form-control'}),
+#             'post_box':forms.TextInput(attrs={'class':'form-control'}),
+#             'l_image':forms.ClearableFileInput(attrs={'class': 'form-control-file'}),
+#             }
 class AddressForm(forms.ModelForm):
     class Meta:
-        Model = Address
+        model = Address
         fields = '__all__'
-        widgets ={
-            'zone' : forms.TextInput(attrs={'class':'form-control'}),
-            'provience':forms.TextInput(attrs={'class':'form-control'}),
-            'district':forms.TextInput(attrs={'class':'form-control'}),
-            'muni_vdc':forms.TextInput(attrs={'class':'form-control'}),
-            'house_no':forms.TextInput(attrs={'class':'form-control'}),
-            'ward_no':forms.TextInput(attrs={'class':'form-control'}),
-            'street':forms.TextInput(attrs={'class':'form-control'}),
-            'tel_n0':forms.TextInput(attrs={'class':'form-control'}),
-            'post_box':forms.TextInput(attrs={'class':'form-control'}),
-            'l_image':forms.TextInput(attrs={'class':'form-control'}),
-            }
+        exclude = ['person', 'address_type']
+        widgets = {
+            'zone': forms.TextInput(attrs={'class': 'form-control'}),
+            'provience': forms.Select(attrs={'class': 'form-control'}),
+            'district': forms.TextInput(attrs={'class': 'form-control'}),
+            'muni_vdc': forms.TextInput(attrs={'class': 'form-control'}),
+            'house_no': forms.TextInput(attrs={'class': 'form-control'}),
+            'ward_no': forms.TextInput(attrs={'class': 'form-control'}),
+            'street': forms.TextInput(attrs={'class': 'form-control'}),
+            'tel_n0': forms.TextInput(attrs={'class': 'form-control'}),
+            'post_box': forms.TextInput(attrs={'class': 'form-control'}),
+            'l_image': forms.ClearableFileInput(attrs={'class': 'form-control-file'}),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Make all fields optional
+        for field_name in self.fields:
+            self.fields[field_name].required = False
+
 
 class IncomeForm(forms.ModelForm):
     class Meta:
-        Model = Income
+        model = Income
         fields = '__all__'
+        exclude = ['person']
+        widgets = {
+            'organization':forms.TextInput(attrs={'class':'form-control'}),
+            'address':forms.TextInput(attrs={'class':'form-control'}),
+            'designation':forms.TextInput(attrs={'class':'form-control'}),
+        }
 
 class FamilyForm(forms.ModelForm):
     class Meta:
         model = Family 
         fields ='__all__'
+        exclude = ['person']
+        widgets ={
+            'f_relation':forms.TextInput(attrs={'class':'form-control'}),
+            'f_fullname':forms.TextInput(attrs={'class':'form-control'}),
+            'f_remarks':forms.TextInput(attrs={'class':'form-control'}),
+        }
 
     
 

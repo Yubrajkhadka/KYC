@@ -6,6 +6,8 @@ from django.core.validators import  MinLengthValidator,EmailValidator
 from captcha.fields import CaptchaField
 
 
+
+
 class CustomUserForm(UserCreationForm):
     username = forms.CharField(widget = forms.TextInput(attrs= {'class':'form-control my-2','placeholder':'Enter username'}))
     firstname = forms.CharField(widget = forms.TextInput(attrs= {'class':'form-control my-2','placeholder':'Enter firstname'}), validators=[
@@ -66,11 +68,12 @@ class PersonForm(forms.ModelForm):
     class Meta:
         model = Person
         fields = '__all__'
+        exclude = ['verified']
         widgets = {
             'firstname':forms.TextInput(attrs={'class':'form-control'}),
             'middlename':forms.TextInput(attrs={'class':'form-control'}),
             'lastname':forms.TextInput(attrs={'class':'form-control'}),
-            'image':forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'image':forms.ClearableFileInput(attrs={'class': 'form-control-file'}),
             'fathername':forms.TextInput(attrs={'class':'form-control'}),
             'grandfather':forms.TextInput(attrs={'class':'form-control'}),
             'dateofbirth':forms.DateInput(attrs={'class':'form-control','type': 'date'}),

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Person, Address, Income, Family
+from .models import Person, Address, Income, Family,Bank
 
 class AddressSerializer(serializers.ModelSerializer):
     class Meta:
@@ -24,4 +24,9 @@ class PersonSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Person
+        fields = '__all__'
+
+class BankSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Bank
         fields = '__all__'

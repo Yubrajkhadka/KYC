@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 from know.models import *
+from django.contrib.auth.models import User
+from django.shortcuts import render
 
 from know.forms import CustomUserForm
 
@@ -22,7 +24,9 @@ def register(request):
             user.first_name = firstname
             user.last_name = lastname
             user.save()
+          
             messages.success(request,"Registred Successfully")
+           
             return redirect('/login')
     context = {'form':form}
     return render(request,"auth/register.html",context)
@@ -53,6 +57,6 @@ def logoutpage(request):
     if request.user.is_authenticated:
         logout(request)
         messages.success(request,"Logged Out Successfully")
-    return redirect('/')
+    return redirect('/login')
 
 

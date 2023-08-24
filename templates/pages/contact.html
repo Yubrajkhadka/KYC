@@ -1,3 +1,4 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 {% extends 'master/master.html '%} {% block content %} {%if messages%} {% for message in messages %}
 <div class="alert alert-sucess" style="background-color: #ffc107; color:#000000;">{{message}}</div>
 {% endfor %} {% endif %}
@@ -46,6 +47,13 @@
         </div>
     </div>
 </section>
-
+<script>
+    $(document).ready(function() {
+       setTimeout(function() {
+           $('.alert-sucess').hide('slow')
+       }, 500);
+   });
+ 
+  </script>
 
 {% endblock %}

@@ -1,0 +1,52 @@
+
+{% extends 'master/master.html '%} {% block content %} 
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h1>KYC Help | Instructions</h1>
+            <p>Welcome to the KYC Help Page. Here you can find information and instructions to help you with the KYC.</p>
+
+            <h2>Document Instructions</h2>
+            <p>KYC process requires <a href="{% url 'loginpage'%}">Login</a></p>
+
+            <div class="content">
+                <ul>
+                    <li>Provide your personal information in the "Personal Details" section of the form.</li>
+                    <li>
+                        <p>Your personal information requires you to upload your images (personal photographs, document images, etc.)</p>
+                        <h3>Uploading Documents</h3>
+                        <p>Follow these steps to upload your documents:</p>
+                        <ol>
+                            <li>Login to your account.</li>
+                            <li>Navigate to the KYC section.</li>
+                            <li>Click on the "Upload Documents" button.</li>
+                            <li>Select the documents you want to upload.</li>
+                            <li>Click "Submit" to complete the process.</li>
+                        </ol>
+                        <p>To complete the KYC process, you will need to provide the following documents:</p>
+                        <ul>
+                            <li>Government-issued ID (e.g. citizenship proof, passport)</li>
+                        </ul>
+                    </li>
+                    <li><p>Provide information about your family in the "Family Details" section of the form.</p></li>
+                    <li><p>Provide information about your address in the "Address Details" section of the form.</p></li>
+                    <li><p>Provide information about your income in the "Income Details" section of the form.</p></li>
+                </ul>
+            </div>
+
+            <h2>Others</h2>
+            <p>If you encounter any issues during the KYC process, here are some common solutions:</p>
+            <ul>
+                <li>Make sure your documents are clear and legible.</li>
+                <li>Check that your uploaded files are in the correct format (PDF, JPEG, etc.).</li>
+                <li>If your documents are rejected, follow the instructions provided and resubmit.</li>
+            </ul>
+
+            <p>If you need further assistance, please <a href="{%url 'contact'%}">Contact</a></p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

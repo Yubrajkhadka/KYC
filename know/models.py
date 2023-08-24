@@ -1,6 +1,25 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from django.contrib.auth.models import AbstractUser
+
+from django.conf import settings
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from rest_framework.authtoken.models import Token
+
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def create_auth_token(sender, instance=None, created=False, **kwargs):
+    if created:
+        Token.objects.create(user=instance)
+
+
+class CustomUser(AbstractUser):
+    contact = models.CharField(max_length = 10)
+    image = models.ImageField(upload_to='photos/images')
+    groups = None  
+    user_permissions = None
+
 # Create your models here.
 class Contact(models.Model):
     name = models.CharField(max_length=250)
@@ -62,6 +81,7 @@ class Person(models.Model):
     other_card_back=models.ImageField(upload_to='other/back',default="",blank=True)
     email =models.CharField(max_length=25,default="")
     number = models.CharField(max_length=10,default="")
+    verified = models.BooleanField(default=False)
 
 
 
@@ -116,3 +136,11 @@ class Family(models.Model):
 
    def __str__(self):
        return f"Family details for {self.person.firstname}"
+
+class Bank(models.Model):
+       person = models.ForeignKey(Person, on_delete=models.CASCADE, related_name='bank')
+       account_no = models.CharField(max_length =20)
+       Bank_name = models.CharField(max_length=10)
+       address = models.CharField(max_length =20)
+       created_at = models.DateTimeField(auto_now_add=True) 
+       accounttype = models.CharField(max_length =15, default="Saving")

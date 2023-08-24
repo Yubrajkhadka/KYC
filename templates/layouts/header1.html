@@ -46,13 +46,12 @@
                            <a class="nav-link" href="{% url 'kyc'%}">KYC<span class="sr-only"></a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="">About</a>
+                           <a class="nav-link" href="{% url 'about'%}">About</a>
                         </li>
                         {% if request.user.is_authenticated %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle " href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label  fa fa-user nav-item">{{request.user}} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="">My Profile</a></li>
                                 <li><a class="dropdown-item" href="{% url 'logout'%}">Logout</a></li>
                             </ul>
                          </li>

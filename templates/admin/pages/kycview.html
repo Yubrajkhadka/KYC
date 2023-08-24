@@ -1,0 +1,421 @@
+
+<!-- CSS -->
+<link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- JavaScript -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script> 
+
+<div class="container">
+    {%if messages %} {% for message in messages %}
+    <div class="alert alert-sucess" style="background-color: #ffc107; color:#000000;">{{message}}</div>
+    {% endfor %} {% endif %}
+    <h4 style="text-align: center; color: #009EF7; font-weight: 900;">KNOW YOUR CUSTOMER (KYC) APPLICATION FORM</h4>
+<br>
+<div id="smartwizard" class = "center mx-auto">
+    <ul class="nav" >
+        <li class="nav-item">
+            <a class="nav-link rounded-circle" href="#tab1">
+                <div class="num" >Personal Details</div>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link rounded-circle" href="#tab2">
+                <div class="num ">Addresss</div>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link rounded-circle" href="#tab3">
+                <div class="num"> Family Details</div>
+              
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link rounded-circle" href="#tab4">
+                <div class="num">Income Details</div>
+    
+            </a>
+        </li>
+    </ul>
+    <br><br><br>
+    
+        
+    
+
+<div class="tab-content center">
+
+    <div id="tab1"class="tab-pane" role="tabpanel" aria-labelledby="step-1">
+        <div  class="panel panel-primary" >
+            <div class="panel-body">
+                <div class="form-group row">
+                    <div class="col-md-4 mb-3">
+                        <label for="fname"class="text-dark">First Name</label>
+                        <input type="text" class="form-control" value="{{person.firstname}}" readonly>
+                       
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="mname" class="text-dark">Middle Name</label>
+                        <input type="text" class="form-control" value=" {{person.middlename}}" readonly>
+                       
+                      
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="lname" class="text-dark">Last Name</label>
+                        <input type="text" class="form-control" value=" {{person.lastname}}" readonly >
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row">
+                    <div class="col-md-4 mb-3">
+                        <label for="lname" class="text-dark">Photo</label><br>
+                        <img src="{{ person.image.url }}" style="height: 30px; width: 30px; transition: all 0.3s;"
+                             onmouseover="this.style.height = '50vh'; this.style.width = '50vw';" 
+                             onmouseout="this.style.height = '30px'; this.style.width = '30px';"
+                             alt="Image not Found">
+                    </div>
+                    
+                    
+                  <div class="col-md-4 mb-3">
+                    <label for="fhusband">Father</label> 
+                    <input type="text" class="form-control" value=" {{person.fathername}}" readonly>
+                  </div>
+                
+                    <div class="col-md-4 mb-3">
+                        <label for="fhusband">Grand Father </label>    
+                        <input type="text" class="form-control" value="{{person.grandfather}}" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row">
+                    <div class="col-md-4 mb-3">
+                        <label for="datepicker">Date Of Birth </label>
+                        <input type="text" class="form-control" value="{{person.dateofbirth}}" readonly>
+                    </div>			     		
+                         <div class="col-md-4 mb-3"><label class="control-label">Gender</label>
+                        <input type="text" class="form-control" value="{{person.gender}}" readonly>
+                        
+                    </div>
+                    <div class="col-md-4 mb-3"><label class="control-label">Martial Status </label>
+                        <input type="text" class="form-control" value="{{person.married_status}}" readonly>
+                         
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row">
+                    <div class="col-md-4 mb-3">
+                        <label>Nationality  </label>
+                        <input type="text" class="form-control" value="{{person.nationality}}" readonly>
+                        
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>PAN No </label>
+                        <input type="text" class="form-control" value="{{person.pannum}}" readonly>
+                    </div>
+                    <div class="col-md-4 mb-3"><label>Email Address </label>
+                        <input type="text" class="form-control" value="{{person.email}}" readonly>
+                    </div>   
+
+                    <div class="col-md-4 mb-3"><label>Contact Number</label>
+                        <input type="text" class="form-control" value="{{person.number}}" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <h4>Citizenship </h4>
+                <div class="form-group row">
+                    <div class="col-md-4 mb-3">
+                        <label>Citizenship No.</label>
+                        <input type="text" class="form-control" value=" {{person.citizenshipnumber}}" readonly>
+                       
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Issued From </label><input type="text" class="form-control" value="{{person.citizen_issued_district}}" readonly>
+                            
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Issued Date</label><input type="text" class="form-control" value="{{person.citizen_issued_date}}" readonly>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="lname" class="text-dark">Citizen Front Photo</label><br>
+                        <img src="{{ person.front_photo.url }}" style="height: 30px; width: 30px; transition: all 0.3s;"
+                             onmouseover="this.style.height = '50vh'; this.style.width = '50vw';" 
+                             onmouseout="this.style.height = '30px'; this.style.width = '30px';"
+                             alt="Image not Found">
+                    </div>
+                    
+                    <div class="col-md-4 mb-3">
+                        <label for="lname" class="text-dark">Citizen BackPhoto</label><br>
+                        <img src="{{ person.back_photo.url }}" style="height: 30px; width: 30px; transition: all 0.3s;"
+                             onmouseover="this.style.height = '50vh'; this.style.width = '50vw';" 
+                             onmouseout="this.style.height = '30px'; this.style.width = '30px';"
+                             alt="Image not Found">
+                    </div>
+                    
+                
+
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <h4>Passport</h4>
+                    <div class="form-group row">
+                    <div class="col-md-4 mb-3">
+                        <label>Passport No.</label><input type="text" class="form-control" value ="{{person.passport_number}}"readonly>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Issued From </label>
+                        <input type="text" class="form-control" value="{{person.passport_issued_place}}" readonly>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Issued Date </label><input type="text" class="form-control" value="{{person.passport_issued_date}}" readonly>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="lname" class="text-dark">Passport Front Photo</label><br>
+                        {% if person.pass_front_photo %}
+                            <img src="{{ person.pass_front_photo.url }}" style="height: 30px; width: 30px; transition: all 0.3s;"
+                                 onmouseover="this.style.height = '50vh'; this.style.width = '50vw';" 
+                                 onmouseout="this.style.height = '30px'; this.style.width = '30px';"
+                                 alt="">
+                        {% else %}
+                            No Front Photo Available
+                        {% endif %}
+                    </div>
+                    
+                 <div class="col-md-4 mb-3">
+                        <label for="lname" class="text-dark">Passport BackPhoto</label><br>
+                          {% if person.pass_front_photo %}
+                        <img src="{{person.pass_back_photo.url}}" style="height: 30px; width: 30px; transition: all 0.3s;"
+                             onmouseover="this.style.height = '50vh'; this.style.width = '50vw';" 
+                             onmouseout="this.style.height = '30px'; this.style.width = '30px';"
+                             alt="">
+                         {% else %}   
+                            No Back  Photo Available.
+                        {% endif %}  
+                    </div> 
+                </div>
+            </div>
+                <div class="panel-body">
+                        <h4>Other ID Card</h4>
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label>Other ID Card Type</label><input type ="text" class ="form-control" value= "{{person.other_card}}" readonly>
+                    </div>
+                    <div class="col-md-4">
+                        <label>ID Card No.</label><input type = "text" class="form-control" value="{{person.other_card_number}}" readonly>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Issued Date (जारी मिति) </label><input type="text" class= "form-control" value ="{{person.other_card_issued_date}}" readonly>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Issuing Authority</label><input type ="text" class = "form-control" value ="{{person.other_card_issued_authority}}" readonly>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="lname" class="text-dark">Other Card FrontPhoto</label><br>
+                        {% if person.other_card_front %}
+                            <img src="  {{person.other_card_front.url}}" style="height: 30px; width: 30px; transition: all 0.3s;"
+                                 onmouseover="this.style.height = '50vh'; this.style.width = '50vw';" 
+                                 onmouseout="this.style.height = '30px'; this.style.width = '30px';"
+                                 alt="">
+                        {% else %}
+                            No Front Photo Available
+                        {% endif %}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="lname" class="text-dark">Other Card BackPhoto</label><br>
+                          {% if person.other_card_back%}
+                        <img src="{{person.other_card_back.url}}" style="height: 30px; width: 30px; transition: all 0.3s;"
+                             onmouseover="this.style.height = '50vh'; this.style.width = '50vw';" 
+                             onmouseout="this.style.height = '30px'; this.style.width = '30px';"
+                             alt="">
+                         {% else %}   
+                            No Back  Photo Available.
+                        {% endif %}  
+                    </div> 
+                </div>
+        </div>
+                 
+        
+    </div>  
+    </div>
+   
+    <!-- ... (other tab-pane elements) ... -->
+    <div id="tab2" class="tab-pane" role="tabpanel" aria-labelledby="step-2">
+        <div  class="panel panel-primary" >
+            <!--Permanent Adress Panel Start -->
+            {% for a in a %}
+              <div class="panel-body">  
+                <h4 class="font-weight-bold">Address</h4>
+                      <div class="form-group row">
+                        <table class="table table-bordered">
+                            <thead style="background-color: #007bff; color: white;">
+                                <tr>
+                                    <th>S.N.</th>
+                                    <th>Zone</th>
+                                    <th>Provience</th>
+                                    <th>District</th>
+                                    <th>Municipality/VDC</th>
+                                    <th>Ward No</th>
+                                    <th>House No</th>
+                                    <th>Street</th>
+                                    <th>Post Box</th>
+                                    <th>Location Image</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ a.zone}}</td>					               
+                                    <td>{{a.provience}}</td>  
+                                    <td>{{a.district}}</td>		
+                                    <td>{{a.muni_vdc}}</td>	
+                                    <td>{{a.ward_no}}</td>	
+                                    <td>{{a.house_no}}</td>	
+                                    <td>{{a.street}}</td>      
+                                    <td>{{a.post_box}}</td>    
+                                    
+                                     <td> {% if a.l_image %}
+                                        <img src="{{a.l_image.url}}" style="height:60px; width:60px;">
+                                        {% else %}   
+                                        No  Image  Available.
+                                    {% endif %}  
+                                    
+                                    
+                                    </td>					       	
+                                   </tr>
+                                   
+                                 
+                                  
+                               </tbody>
+                           </table>
+                     	
+                 </div>	
+             </div>
+            
+          </div>
+          {% endfor %}
+    </div>
+    <div id="tab3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
+        <div  class="panel panel-primary " >
+            <div class="panel-body">
+                <div class="form-group row">
+                    {% for f in f%}
+                <h4>Details of Family Member</h4>
+                    <table class="table table-bordered">
+                     <thead  style="background-color: #007bff; color: white;">
+                         <tr>
+                             <th>S.N.</th>
+                             <th>Relation</th>
+                             <th>Family Member Full Name</th>
+                             <th>Remarks</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         <tr>
+                             <td>{{ forloop.counter }}</td>
+                             <td>{{ f.f_relation}}</td>					               
+                             <td>{{f.f_fullname}}</td>  
+                             <td>{{f.f_remarks}}</td>					                					       	
+                            </tr> 
+                        </tbody>
+                    </table>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div id="tab4" class="tab-pane" role="tabpanel" aria-labelledby="step-4">
+        <div  class="panel panel-primary " >
+            <div class="panel-body">
+                {% for i in i%}
+                <div class="form-group row">
+                    
+                <h4>Details of Income Source</h4>
+                    <table class="table table-bordered">
+                     <thead style="background-color: #007bff; color: white;" >
+                         <tr>
+                             <th>S.N</th>
+                             <th>Organization</th>
+                             <th>Address</th>
+                             <th>Designation</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         <tr>
+                             <td>{{ forloop.counter }}</td>
+                             <td>{{i.organization}}</td>					               
+                             <td>{{i.address}}</td>  
+                             <td>{{i.designation}}</td>					                					       	
+                            </tr>
+                            
+
+                        
+                        </tbody>
+                    </table>
+      
+                </div>
+                              
+        {% endfor %}
+            </div>
+            <div class="toolbar">
+                <div class="sw-btn-group text-right mt-3" style="display: flex; justify-content: space-between;">
+                    <a href="{% url 'adminkyc' %}" class="btn btn-primary btn-sm" style="width: 80px; height: 35px;font-size: 14px;">Cancel</a>
+
+
+
+                
+                    <form action="{% url 'notification' person.pk %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+     
+    </div>
+   
+</div>
+
+
+<!-- Include optional progressbar HTML -->
+<div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+
+</div>
+<script>
+    $(document).ready(function(){
+        $('#smartwizard').smartWizard({
+        
+        });
+    
+        $('#smartwizard').on('showStep', function(e, anchorObject, stepNumber, stepDirection, stepPosition) {
+            if (stepNumber === 0) {
+                $('.sw-btn-prev').hide();
+                $('.sw-btn-next').show();
+            
+            } else if (stepNumber === 3) {
+                $('.sw-btn-prev').hide();
+                $('.sw-btn-next').hide();
+
+            } else {
+                $('.sw-btn-prev').show();        
+                $('.sw-btn-next').show();
+                
+            }
+        });
+        
+      
+    });
+    </script>
+    
+
+
+

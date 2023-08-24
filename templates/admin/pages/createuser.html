@@ -1,0 +1,80 @@
+{% extends 'admin/master/master.html' %}
+{% load static %}
+{% block content %}
+<div class="modal-content">
+    
+		<div class="table-title">
+			<div class="row">
+				<div class="col-sm-6 p-0 flex justify-content-lg-start justify-content-center">
+				   <h2 class="ml-lg-2">Create User</h2>
+				</div>
+
+			</div>
+		  </div>
+   
+	<div class="modal-body">
+		<form action="{% url 'createuser' %}" method="POST">
+			
+			{% csrf_token %}
+			<div class="form-row">
+                <div class="col-lg-7">
+                    {{form.username}}
+                    {% if form.errors.username %}
+                        <label class = "text-danger">{{ form.errors.username }}</label>
+                    {% endif %}
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-lg-7">
+                    {{form.firstname}}
+                    {% if form.errors.firstname %}
+                        <label class = "text-danger">{{ form.errors.firstname}}</label>
+                    {% endif %}
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-lg-7">
+                    {{form.lastname}}
+                    {% if form.errors.lastname %}
+                        <label class = "text-danger">{{ form.errors.lastname}}</label>
+                    {% endif %}
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-lg-7">
+                    {{form.email}}
+                    {% if form.errors.email %}
+                        <label class = "text-danger">{{ form.errors.email }}</label>
+                    {% endif %}
+                </div>
+              </div>
+             
+              <div class="form-row">
+                <div class="col-lg-7">
+                    {{form.password1}}
+                    {% if form.errors.password1 %}
+                        <label class = "text-danger">{{ form.errors.password1 }}</label>
+                    {% endif %}
+
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-lg-7">
+                    {{form.password2}}
+                    {% if form.errors.password2 %}
+                        <label class = "text-danger">{{ form.errors.password2 }}</label>
+                    {% endif %}
+                </div>
+              </div>
+			<a href="{% url 'kycadmin' %}" class="btn btn-secondary" data-dismiss="modal">Cancel</a>
+			<button type="submit" class="btn btn-success">Save</button>
+		</form>
+	</div>
+	
+</div>
+{% endblock %}
+
+
+
+		
+

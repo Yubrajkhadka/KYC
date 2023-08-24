@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'djangonepal',
     'django_extensions',
     'rest_framework',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -55,6 +57,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'KYC.urls'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    # ...
+}
 
 TEMPLATES = [
     {
@@ -150,3 +159,9 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'yubrajkhadka@kcc.edu.np'
 EMAIL_HOST_PASSWORD = '9808482819'
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+
+TWILIO_ACCOUNT_SID = 'AC248e2eb75a312b4b54cc31fd2c38c4b4'
+TWILIO_AUTH_TOKEN = '458205620fb451d22efd2fc35fe1ca1f'
+TWILIO_PHONE_NUMBER = '+16184924093'
+

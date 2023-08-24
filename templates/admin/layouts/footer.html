@@ -1,0 +1,51 @@
+{% load static%}
+
+<footer class="footer fixed-bottom">
+            <div class="container-fluid">
+                <div class="footer-in">
+                    <p class="mb-0">&copy  KYC . All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</div>
+
+<!-------complete html----------->
+
+
+
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="{% static 'admin/js/popper.min.js' %}"></script>
+   <script src="{% static 'admin/js/bootstrap.min.js' %}"></script>
+
+
+  <script type="text/javascript">
+       $(document).ready(function(){
+	      $(".xp-menubar").on('click',function(){
+		    $("#sidebar").toggleClass('active');
+			$("#content").toggleClass('active');
+		  });
+
+		  $('.xp-menubar,.body-overlay').on('click',function(){
+		     $("#sidebar,.body-overlay").toggleClass('show-nav');
+		  });
+
+	   });
+  </script>
+
+
+<script>
+    $(document).ready(function() {
+       setTimeout(function() {
+           $('.alert-sucess').hide('slow')
+       }, 1500);
+   });
+ 
+  </script>
+
+
+  </body>
+
+  </html>

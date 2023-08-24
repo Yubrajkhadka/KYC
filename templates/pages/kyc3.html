@@ -3,9 +3,12 @@
 <!-- CSS -->
 <link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0-beta3/css/all.min.css">
+
 <!-- JavaScript -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script> 
+
 
 
 
@@ -17,11 +20,12 @@
     <div class="alert alert-sucess" style="background-color: #ffc107; color:#000000;">{{message}}</div>
     {% endfor %} {% endif %}
     <h4 style="text-align: center; color: #009EF7; font-weight: 900;">KNOW YOUR CUSTOMER (KYC) APPLICATION FORM</h4>
+   <h4> 
 <br>
 <div id="smartwizard" class = "center mx-auto">
     <ul class="nav" >
         <li class="nav-item">
-            <a class="nav-link rounded-circle" href="#tab1">
+            <a class="nav-link active" href="#tab1">
                 <div class="num" >Personal Details</div>
             </a>
         </li>
@@ -53,21 +57,21 @@
                 <div class="panel-body">
                     <div class="form-group row">
                         <div class="col-md-4 mb-3">
-                            <label for="fname"class="text-dark">First Name (पहिलो नाम )*</label>
+                            <label for="fname"class="text-dark">First Name *</label>
                             {{form.firstname}}
                             {% if form.errors.firstname %}
                             <label class = "text-danger">{{ form.errors.firstname}}</label>
                              {% endif %}
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="mname" class="text-dark">Middle Name (बीचको नाम )</label>
+                            <label for="mname" class="text-dark">Middle Name</label>
                             {{form.middlename}}
                             {% if form.errors.middlename %}
                             <label class = "text-danger">{{ form.errors.middlename}}</label>
                         {% endif %}
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="lname" class="text-dark">Last Name (अन्तिम अर्थात् थर) *</label>
+                            <label for="lname" class="text-dark">Last Name *</label>
                             {{form.lastname}}
                             {% if form.errors.lastname %}
                             <label class = "text-danger">{{ form.errors.lastname}}</label>
@@ -78,9 +82,9 @@
                 </div>
                 <div class="panel-body">
                     <div class="form-group row">
-                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Photo (फोटो){{form.image}}</span></div>
+                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Photo * {{form.image}}</span></div>	
                       <div class="col-md-4 mb-3">
-                        <label for="fhusband">Father (बाबुको नाम *)</label> {{form.fathername}}   {% if form.errors.fathername %}
+                        <label for="fhusband">Father Name *</label> {{form.fathername}}   {% if form.errors.fathername %}
                         <label class = "text-danger">{{ form.errors.fathername}}</label>
                     {% endif %}</div>
                     
@@ -93,11 +97,11 @@
                 <div class="panel-body">
                     <div class="form-group row">
                         <div class="col-md-4 mb-3">
-                            <label for="datepicker">Date Of Birth (वि.सं.मा :)*</label>{{form.dateofbirth}}</div>			     		
-                             <div class="col-md-4 mb-3"><label class="control-label">Gender (लिङ्ग)</label>
+                            <label for="datepicker">Date Of Birth *</label>{{form.dateofbirth}}</div>			     		
+                             <div class="col-md-4 mb-3"><label class="control-label">Gender * </label>
                              {{form.gender}}
                         </div>
-                        <div class="col-md-4 mb-3"><label class="control-label">Martial Status (वैवाहिक स्थिति )</label>
+                        <div class="col-md-4 mb-3"><label class="control-label">Martial Status  *</label>
                              {{form.married_status}}
                         </div>
                     </div>
@@ -111,26 +115,26 @@
                         <div class="col-md-4 mb-3">
                             <label>PAN No *</label>{{form.pannum}}
                         </div>
-                        <div class="col-md-4 mb-3"><label>Email Address (ईमेल )</label>{{form.email}}</div>   	
-                        <div class="col-md-4 mb-3"><label>Contact Number</label>{{form.number}}</div>
+                        <div class="col-md-4 mb-3"><label>Email Address *</label>{{form.email}}</div>   	
+                        <div class="col-md-4 mb-3"><label>Contact Number *</label>{{form.number}}</div>
                     </div>
                 </div>
                 <div class="panel-body">
-                    <h4>Citizenship (नागरिकता)</h4>
+                    <h4>Citizenship </h4>
                     <div class="form-group row">
                         <div class="col-md-4 mb-3">
-                            <label>Citizenship No. (नागरिकता नं.)*</label>
+                            <label>Citizenship No.*</label>
                             {{form.citizenshipnumber}}
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label>Issued From (जारी गर्ने जिल्ला) *</label>{{form.citizen_issued_district}}
+                            <label>Issued From  *</label>{{form.citizen_issued_district}}
                                 
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label>Issued Date (जारी मिति) *</label>{{form.citizen_issued_date}}
+                            <label>Issued Date  *</label>{{form.citizen_issued_date}}
                         </div>
-                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Front-Photo (फोटो){{form.front_photo}}</span></div>
-                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Back-Photo (फोटो){{form.back_photo}}</span></div>
+                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Front-Photo * {{form.front_photo}}</span></div>
+                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Back-Photo *{{form.back_photo}}</span></div>
     
                         </div>
                     </div>
@@ -142,14 +146,14 @@
                             {{form.passport_number}}
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label>Issued From (जारी गर्ने जिल्ला) *</label>
+                            <label>Issued From  *</label>
                             {{form.passport_issued_place}}
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label>Issued Date (जारी मिति) *</label>{{form.passport_issued_date}}
+                            <label>Issued Date *</label>{{form.passport_issued_date}}
                         </div>
-                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Front-Photo (फोटो){{form.pass_front_photo}}</div>
-                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Back-Photo (फोटो){{form.pass_back_photo}}</span></div>
+                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Front-Photo{{form.pass_front_photo}}</div>
+                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Back-Photo {{form.pass_back_photo}}</span></div>
     
                     </div>
                 </div>
@@ -163,18 +167,17 @@
                             <label>ID Card No.</label>{{form.other_card_number}}
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label>Issued Date (जारी मिति) </label>{{form.other_card_issued_date}}
+                            <label>Issued Date  </label>{{form.other_card_issued_date}}
                         </div>
                         <div class="col-md-4 mb-3">
                             <label>Issuing Authority</label>{{form.other_card_issued_authority}}
                         </div>
-                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Front-Photo (फोटो){{form.other_card_front}}</span></div>
-                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Back-Photo (फोटो){{form.other_card_back}}</span></div>
+                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Front-Photo {{form.other_card_front}}</span></div>
+                        <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Back-Photo {{form.other_card_back}}</span></div>
     
                     </div>
             </div>
                      
-            <button type="submit">Submit</button>
         </div>  
         </div>
        
@@ -188,36 +191,26 @@
 						  <div class="form-group row">
             
 							<div class="col-md-4 mb-3"><label for="lzone">Zone *</label>{{ form1.zone}}</div>
-						   <div class="col-md-4 mb-3"><label for="lDistrict">District (जिल्ला)*</label>{{form1.district}}
+						   <div class="col-md-4 mb-3"><label for="lDistrict">District *</label>{{form1.district}}
 							</div>
 							<div class="col-md-4 mb-3"><label for="lProvience">Provience*</label>{{form1.provience}}
 						   </div>
-						   <div class="col-md-4 mb-3"><label for="lMunicipalityVdc">Municipality/VDC (न.पा/गा.वि.स.)*</label>{{form1.muni_vdc}}</div>
-						   <div class="col-md-4 mb-3"><label for="lWard No.">Ward No.(वडा नं ) *</label>{{form1.ward_no}}
+						   <div class="col-md-4 mb-3"><label for="lMunicipalityVdc">Municipality/VDC*</label>{{form1.muni_vdc}}</div>
+						   <div class="col-md-4 mb-3"><label for="lWard No.">Ward No. *</label>{{form1.ward_no}}
 						  </div>	
-						   <div class="col-md-4 mb-3"><label for="lHouseNo">House No.(घर नं. ) </label>{{form1.house_no}}
+						   <div class="col-md-4 mb-3"><label for="lHouseNo">House No. </label>{{form1.house_no}}
 						  </div>	
-						   <div class="col-md-4 mb-3"><label for="lStreet">Street/Tole (टोल )*</label>{{form1.street}}
+						   <div class="col-md-4 mb-3"><label for="lStreet">Street/Tole *</label>{{form1.street}}
 						  </div>
-						   <div class="col-md-4 mb-3"><label for="ltelno">Tel.No.(फोन नं) </label>{{form1.tel_n0}}
+						   <div class="col-md-4 mb-3"><label for="ltelno">Tel.No. </label>{{form1.tel_n0}}
 						  </div>	
 						   <div class="col-md-4 mb-3"><label for="P.Box.No">P.Box. No.</label>{{form1.post_box}}
 						  </div>
-                          <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Back-Photo (फोटो){{form1.l_image}}</span></div>		
+                          <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Location-Photo * {{form1.l_image}}</span></div>		
 					 </div>	
 				 </div>
 				 <!--permanent Adress Panel Ending -->
-                 <div class="panel-body">
-                    <h4>Current Address is Same as Permanent?</h4>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" name="addressOption" value="yes" id="sameAddressRadioYes">
-                        <label class="form-check-label" for="sameAddressRadioYes">Yes</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" name="addressOption" value="no" id="sameAddressRadioNo">
-                        <label class="form-check-label" for="sameAddressRadioNo">No</label>
-                    </div>
-                </div>
+              
 				 <!--Temporary Adress Panel Start -->
 				  <div class="panel-body" id="temporaryAddressSection"> 
 					
@@ -226,22 +219,22 @@
 					  <div class="col-md-4 mb-3"><label for="lzone">Zone *</label>{{form1.zone}}
 	 
 								</div>
-						   <div class="col-md-4 mb-3"><label for="lDistrict">District (जिल्ला) *</label>{{form1.district}}
+						   <div class="col-md-4 mb-3"><label for="lDistrict">District  *</label>{{form1.district}}
 							</div>
 							<div class="col-md-4 mb-3"><label for="lProvience">Provience*</label>{{form1.provience}}
 						   </div>
-						   <div class="col-md-4 mb-3"><label for="lMunicipalityVdc">Municipality/VDC (न.पा/गा.वि.स.)*</label>{{form1.muni_vdc}}</div>
-						   <div class="col-md-3"><label for="lWard No.">Ward No.(वडा नं ) *</label>{{form1.ward_no}}
+						   <div class="col-md-4 mb-3"><label for="lMunicipalityVdc">Municipality/VDC*</label>{{form1.muni_vdc}}</div>
+						   <div class="col-md-3"><label for="lWard No.">Ward No.*</label>{{form1.ward_no}}
 						  </div>	
-						   <div class="col-md-4 mb-3"><label for="lHouseNo">House No.(घर नं. ) </label>{{form1.house_no}}
+						   <div class="col-md-4 mb-3"><label for="lHouseNo">House No. </label>{{form1.house_no}}
 						  </div>	
-						   <div class="col-md-4 mb-3"><label for="lStreet">Street/Tole (टोल ) *</label>{{form1.street}}
+						   <div class="col-md-4 mb-3"><label for="lStreet">Street/Tole  *</label>{{form1.street}}
 						  </div>
-						   <div class="col-md-4 mb-3"><label for="ltelno">Tel.No.(फोन नं) </label>{{form1.tel_n0}}
+						   <div class="col-md-4 mb-3"><label for="ltelno">Tel.No.</label>{{form1.tel_n0}}
 						  </div>	
 						  <div class="col-md-3 mb-3"><label for="P.Box.No">P.Box. No.</label>{{form1.post_box}}
 						  </div>
-                          <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Location-Photo (फोटो){{form1.l_image}}</span></div>	
+                          <div class="col-md-4 mb-3"><span class="btn btn-default btn-file">Location-Photo * {{form1.l_image}}</span></div>	
 				 </div>
 				 </div>
 				 <!--Temporary Adress Panel Ending-->
@@ -262,48 +255,17 @@
                                  <th>Remarks</th>
                              </tr>
                          </thead>
-                         <tbody>
+                         <tbody id="dynamic-fields">
                              <tr>
                                  <td>1</td>
                                  <td>{{form3.f_relation}}</td>					               
                                  <td>{{form3.f_fullname }}</td>  
                                  <td>{{form3.f_remarks}}</td>					                					       	
                                 </tr>
-                                <tr>
-                                 <td>2</td>
-                                 <td>{{form3.f_relation}}</td>					               
-                                 <td>{{form3.f_fullname }}</td>  
-                                 <td>{{form3.f_remarks}}</td>	
-                                                                                                    
-                                </tr>
-                                <tr>
-                                 <td>3</td>
-                                 <td>{{form3.f_relation}}</td>					               
-                                 <td>{{form3.f_fullname }}</td>  
-                                 <td>{{form3.f_remarks}}</td>	
-                                                                                                   
-                                </tr>
-                                <tr>
-                                 <td>4</td>
-                                 <td>{{form3.f_relation}}</td>					               
-                                 <td>{{form3.f_fullname }}</td>  
-                                 <td>{{form3.f_remarks}}</td>
-                                                                                                
-                                </tr>
-                                <tr>
-                                 <td>5</td>
-                                 <td>{{form3.f_relation}}</td>					               
-                                 <td>{{form3.f_fullname }}</td>  
-                                 <td>{{form3.f_remarks}}</td>                   
-                                </tr>
-                                <tr>
-                                 <td>6</td>
-                                 <td>{{form3.f_relation}}</td>					               
-                                 <td>{{form3.f_fullname }}</td>  
-                                 <td>{{form3.f_remarks}}</td>
-                                </tr>
+                               
                             </tbody>
                         </table>
+                        <button id="add-row" style="display: block; margin: 0 auto; font-weight: bold; font-size: 20px; background-color: transparent;">+</button>
                     </div>
                 </div>
             </div>
@@ -322,7 +284,7 @@
                                  <th>Designation</th>
                              </tr>
                          </thead>
-                         <tbody>
+                         <tbody id="dynamic-fields1">
                              <tr>
                                  <td>1</td>
                                  <td>{{form2.organization}}</td>					               
@@ -330,23 +292,21 @@
                                  <td>{{form2.designation}}</td>					                					       	
                                 </tr>
                                 <tr>
-                                 <td>2</td>
-                                 <td>{{form2.organization}}</td>					               
-                                 <td>{{form2.address}}</td>  
-                                 <td>{{form2.designation}}</td>		                                                                    
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>{{form2.organization}}</td>					               
-                                    <td>{{form2.address}}</td>  
-                                    <td>{{form2.designation}}</td>		                                                                    
-                                   </tr>
-                                
-                            
                             </tbody>
+                         
                         </table>
+                    </div>
+                    
+                <div class="toolbar">
+                    <div class="sw-btn-group text-right mt-3">
+                      
+                        <button id="add-row1" style="display: block; margin: 0 auto; font-weight: bold; font-size: 20px; background-color: transparent;">+</button>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         
-                <button type="submit">Submit</button>
+                    </div>
+                    
+                </div>
                     </div>
                 </div>
             </div>
@@ -360,29 +320,88 @@
 </div>
 
 </div>
+<!-- poppup -->
+
+
+
+
 <script>
-    $(function() {
-        // SmartWizard initialize
-        $('#smartwizard').smartWizard();
-    });
+   $(document).ready(function(){
+    $('#smartwizard').smartWizard();
+    $('#smartwizard').on('showStep', function(e, anchorObject, stepNumber, stepDirection, stepPosition) {
+    if (stepNumber === 0) {
+        $('.sw-btn-prev').hide();
+        $('.sw-btn-next').show();
+    } 
+
+    else if (stepNumber === 3) {
+      
+        $('.sw-btn-prev').show();
+        $('.sw-btn-next').hide();
+    
+    } else {
+        $('.sw-btn-prev').show();        
+        $('.sw-btn-next').show();
+       
+    }
+});
+
+    
+});
  </script>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const sameAddressRadioYes = document.getElementById("sameAddressRadioYes");
-        const sameAddressRadioNo = document.getElementById("sameAddressRadioNo");
-        const temporaryAddressSection = document.getElementById("temporaryAddressSection");
-        const mainContent = document.querySelector(".panel-body");
-
-        sameAddressRadioYes.addEventListener("change", function() {
-            temporaryAddressSection.style.display = "none";
-            mainContent.style.marginBottom = "0"; // Reset margin when going back to "Yes"
-        });
-
-        sameAddressRadioNo.addEventListener("change", function() {
-            temporaryAddressSection.style.display = "block";
-            mainContent.style.marginBottom = temporaryAddressSection.clientHeight + "px";
+    document.addEventListener("DOMContentLoaded", function () {
+        const addButton = document.getElementById("add-row");
+        const dynamicFields = document.getElementById("dynamic-fields");
+        const smartWizard = $("#smartwizard");
+    
+        let rowCount = 1;
+    
+        addButton.addEventListener("click", function () {
+            rowCount++;
+    
+            const newRow = document.createElement("tr");
+            newRow.innerHTML = `
+                <td>${rowCount}</td>
+                <td><input type="text" name="organization_${rowCount}" class="form-control"></td>
+                <td><input type="text" name="address_${rowCount}" class="form-control"></td>
+                <td><input type="text" name="designation_${rowCount}" class="form-control"></td>
+            `;
+    
+            dynamicFields.appendChild(newRow);
+            smartWizard.smartWizard("fixHeight");
         });
     });
-</script>
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const addButton = document.getElementById("add-row1");
+            const dynamicFields = document.getElementById("dynamic-fields1");
+            const smartWizard = $("#smartwizard");
+        
+            let rowCount = 1;
+        
+            addButton.addEventListener("click", function () {
+                rowCount++;
+        
+                const newRow = document.createElement("tr");
+                newRow.innerHTML = `
+                    <td>${rowCount}</td>
+                    <td><input type="text" name="organization_${rowCount}" class="form-control"></td>
+                    <td><input type="text" name="address_${rowCount}" class="form-control"></td>
+                    <td><input type="text" name="designation_${rowCount}" class="form-control"></td>
+                `;
+        
+                dynamicFields.appendChild(newRow);
+                smartWizard.smartWizard("fixHeight");
+            });
+        });
+        </script>
+       
+        
+        
+       <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>   
 
  {% endblock %}

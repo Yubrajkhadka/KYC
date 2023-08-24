@@ -1,0 +1,65 @@
+<!-- <!-- {% load static %}
+<div class="wrapper">
+    <div class="body-overlay"></div>
+
+    <!-------sidebar--design------------>
+
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <div class="img-logo">
+                <img src="{% static 'img/kyc.png' %}" width="240" height="70" alt="logo"/>
+                </div>
+            </a>
+        </div>
+        <ul class="list-unstyled component m-0">
+            <li  class="active" >
+                <a href="{% url 'kycadmin'%}" class="dashboard active"
+                ><i class="material-icons">dashboard</i>Dashboard
+                </a>
+            </li>
+
+
+            <li class="active">
+
+                <a
+                        href = "{%url 'adminkyc'%}"
+                        class="nav-link"
+
+                >
+                <i class="fa-solid fa-folder"></i>
+                    KYC
+                </a>
+            </li>
+            <li class="active" >
+                <a
+                        href="{% url 'verifiedkyc'%}"
+                        class="nav-link"
+                >
+                    <i class="fa-solid fa-check"></i>
+                    Verified Data
+                </a>
+            </li>
+        
+            <li  class="active">
+                <a
+                        href="{%url 'createuser' %}"
+                        class="nav-link"
+                >
+                    <i class="fa-sharp fa-solid fa-users"></i>
+                    Create User
+                </a>
+            </li>
+            <li  class="active" >
+                <a
+                        href="{%url 'totaluser'%}"
+                        class="nav-link"
+                >
+                    <i class="fa-sharp fa-solid fa-users"></i>
+                    Total user
+                </a>
+            </li>
+          
+
+        </ul>
+    </div>  

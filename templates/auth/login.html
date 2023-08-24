@@ -10,7 +10,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Login</title>
     <style type="text/css">
 
@@ -54,9 +54,7 @@
     </style>
   </head>
   <body>
-    {%if messages%} {% for message in messages %}
-    <div class="alert alert-sucess">{{message}}</div>
-    {% endfor %} {% endif %}
+   
     <section class="Form my-4 mx-5">
       <div class="container">
         <div class="row no-gutters">
@@ -67,6 +65,9 @@
             <h1 class="font-weight-bold py-3">
               Know Your Customer
             </h1>
+            {%if messages %} {% for message in messages %}
+            <div class="alert alert-sucess" style="background-color: #ffc107; color:#000000;">{{message}}</div>
+            {% endfor %} {% endif %}
             <h4>Sign into your account</h4>
             <form method="POST">
                 {% csrf_token %}
@@ -99,4 +100,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
   </body>
 </html>
+<script>
+  $(document).ready(function() {
+     setTimeout(function() {
+         $('.alert-sucess').hide('slow')
+     }, 500);
+ });
+
+</script>
 {% endblock %}

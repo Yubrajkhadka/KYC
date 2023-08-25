@@ -426,6 +426,23 @@ def totaluser(request):
     }
     return render(request,'admin/pages/user.html',data)
 
+def total_message(request):
+    contact = Contact.objects.all()
+    items_per_page = 4
+    paginator = Paginator(contact, items_per_page)
+    page_number = request.GET.get('page')
+    page_obj: Page = paginator.get_page(page_number)
+    data= {
+        'contact':page_obj
+    }
+    return render(request,'admin/pages/contact.html',data)
+def delete_contact(request,id):
+     contact = get_object_or_404(Contact, id=id)
+     contact.delete() 
+     messages.success(request,'Data has been Deleted Successfully.')
+     redirect_back = request.META.get('HTTP_REFERER')
+     return redirect(redirect_back)
+
 def user_delete(request,id):
      user = get_object_or_404(User, id=id)
      user.delete() 

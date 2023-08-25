@@ -42,6 +42,8 @@ urlpatterns = [
     path('download/', views.download_file, name='download_file'),
     path('verified_download/',views.verified,name='verified'),
     path('user_download/',views.userdownload,name='userdownload'),
+    path('total_message/',views.total_message,name='total_message'),
+    path('delete_contact/<int:id>',views.delete_contact,name='delete_contact')
   
 
 ]

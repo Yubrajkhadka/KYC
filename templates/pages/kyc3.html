@@ -255,17 +255,29 @@
                                  <th>Remarks</th>
                              </tr>
                          </thead>
-                         <tbody id="dynamic-fields">
-                             <tr>
-                                 <td>1</td>
-                                 <td>{{form3.f_relation}}</td>					               
-                                 <td>{{form3.f_fullname }}</td>  
-                                 <td>{{form3.f_remarks}}</td>					                					       	
-                                </tr>
-                               
+                         <tbody id="">
+                           
+
+                            <tr>
+                                <td>1</td>
+                                <td>{{ form3.f_relation }}</td>
+                                <td>{{ form3.f_fullname }}</td>
+                                <td>{{ form3.f_remarks }}</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>{{ form3.f_relation }}</td>
+                                <td>{{ form3.f_fullname }}</td>
+                                <td>{{ form3.f_remarks }}</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>{{ form3.f_relation }}</td>
+                                <td>{{ form3.f_fullname }}</td>
+                                <td>{{ form3.f_remarks }}</td>
+                            </tr>
                             </tbody>
                         </table>
-                        <button id="add-row" style="display: block; margin: 0 auto; font-weight: bold; font-size: 20px; background-color: transparent;">+</button>
                     </div>
                 </div>
             </div>
@@ -284,7 +296,7 @@
                                  <th>Designation</th>
                              </tr>
                          </thead>
-                         <tbody id="dynamic-fields1">
+                         <tbody id="">
                              <tr>
                                  <td>1</td>
                                  <td>{{form2.organization}}</td>					               
@@ -292,6 +304,18 @@
                                  <td>{{form2.designation}}</td>					                					       	
                                 </tr>
                                 <tr>
+                                    <td>2</td>
+                                    <td>{{form2.organization}}</td>					               
+                                    <td>{{form2.address}}</td>  
+                                    <td>{{form2.designation}}</td>					                					       	
+                                   </tr>
+                                   <tr>
+                                    <td>3</td>
+                                    <td>{{form2.organization}}</td>					               
+                                    <td>{{form2.address}}</td>  
+                                    <td>{{form2.designation}}</td>					                					       	
+                                   </tr>
+                                   
                             </tbody>
                          
                         </table>
@@ -300,7 +324,7 @@
                 <div class="toolbar">
                     <div class="sw-btn-group text-right mt-3">
                       
-                        <button id="add-row1" style="display: block; margin: 0 auto; font-weight: bold; font-size: 20px; background-color: transparent;">+</button>
+                      
 
                             <button type="submit" class="btn btn-primary">Submit</button>
                         
@@ -348,57 +372,7 @@
 
     
 });
- </script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const addButton = document.getElementById("add-row");
-        const dynamicFields = document.getElementById("dynamic-fields");
-        const smartWizard = $("#smartwizard");
-    
-        let rowCount = 1;
-    
-        addButton.addEventListener("click", function () {
-            rowCount++;
-    
-            const newRow = document.createElement("tr");
-            newRow.innerHTML = `
-                <td>${rowCount}</td>
-                <td><input type="text" name="organization_${rowCount}" class="form-control"></td>
-                <td><input type="text" name="address_${rowCount}" class="form-control"></td>
-                <td><input type="text" name="designation_${rowCount}" class="form-control"></td>
-            `;
-    
-            dynamicFields.appendChild(newRow);
-            smartWizard.smartWizard("fixHeight");
-        });
-    });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const addButton = document.getElementById("add-row1");
-            const dynamicFields = document.getElementById("dynamic-fields1");
-            const smartWizard = $("#smartwizard");
-        
-            let rowCount = 1;
-        
-            addButton.addEventListener("click", function () {
-                rowCount++;
-        
-                const newRow = document.createElement("tr");
-                newRow.innerHTML = `
-                    <td>${rowCount}</td>
-                    <td><input type="text" name="organization_${rowCount}" class="form-control"></td>
-                    <td><input type="text" name="address_${rowCount}" class="form-control"></td>
-                    <td><input type="text" name="designation_${rowCount}" class="form-control"></td>
-                `;
-        
-                dynamicFields.appendChild(newRow);
-                smartWizard.smartWizard("fixHeight");
-            });
-        });
-        </script>
-       
-        
+ </script>      
         
        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

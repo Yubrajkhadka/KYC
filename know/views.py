@@ -179,11 +179,13 @@ def kycadmin(request):
     total_verifiedperson =verify_kyc.count()
     total_unverify = unverify.count()
     total_users = User.objects.count()
+    total_contact = Contact.objects.count()
     context ={
         'total_person':total_person,
         'total_verifiedperson':total_verifiedperson,
         'total_unverify': total_unverify,
-        'total_user':total_users
+        'total_user':total_users,
+        'total_contact':total_contact
     }
     return render(request,'admin/pages/index.html',context)
 def adminkyc(request):

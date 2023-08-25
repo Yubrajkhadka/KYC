@@ -1,8 +1,8 @@
 {% extends 'master/master.html '%} {% block content %}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <div class="container">
-    {% if message %}
-        {% for message in message %}
+    {% if messages %}
+        {% for message in messages %}
         <div class = "alert alert-sucess" style="background-color: #ffc107; color:#000000;"></div>
         {% endfor %}
     {% endif %}
@@ -385,39 +385,68 @@
 </section>
 <!-- end arrival section -->
 
-<!-- product section -->
-<section class="product_section layout_padding">
+<!-- service section -->
+<section class="client_section layout_padding">
     <div class="container">
         <div class="heading_container heading_center">
             <h2>
-                Our <span>Service</span>
+                Our <span>Services</span>
             </h2>
         </div>
-        <div class="row">
-         
-        </div>
-</section>
-<!-- end product section -->
-
-<!-- subscribe section -->
-<section class="subscribe_section">
-    <div class="container-fuild">
-        <div class="box">
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <div class="subscribe_form ">
-                        <div class="heading_container heading_center">
-                            <h3>Subscribe To Get Discount Offers</h3>
+        <div id="carouselExample3Controls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="box col-lg-10 mx-auto">
+                        <div class="img_container">
+                            <div class="img-box">
+                                <div class="img_box-inner">
+                                    <img src="{% static 'img/download.png'%}" alt=""> 
+                                </div>
+                            </div>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
-                        <form action="">
-                            <input type="email" placeholder="Enter your email">
-                            <button>
-                   subscribe
-                   </button>
-                        </form>
+                        <div class="detail-box">
+                            <h5>
+                                Shared Data
+                            </h5>
+                           
+                            <p>
+                              
+Shared data refers to information accessible and used by multiple entities concurrently, promoting collaboration and consistency.
+                            </p>
+                        </div>
                     </div>
                 </div>
+                <div class="carousel-item">
+                    <div class="box col-lg-10 mx-auto">
+                        <div class="img_container">
+                            <div class="img-box">
+                                <div class="img_box-inner">
+                                    <img src="{% static 'img/Kycfillform.jpg'%}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Fill Form
+                            </h5>
+                           
+                            <p>
+                                The purpose of filling out a form is typically to provide required information, such as personal details or responses to specific questions, which is then submitted for further processing or record-keeping.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+            <div class="carousel_btn_box">
+                <a class="carousel-control-prev" href="#carouselExample3Controls" role="button" data-slide="prev">
+                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExample3Controls" role="button" data-slide="next">
+                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
     </div>

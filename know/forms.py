@@ -165,6 +165,8 @@ class FamilyForm(forms.ModelForm):
             'f_fullname':forms.TextInput(attrs={'class':'form-control'}),
             'f_remarks':forms.TextInput(attrs={'class':'form-control'}),
         }
+    
+
 
     
 
